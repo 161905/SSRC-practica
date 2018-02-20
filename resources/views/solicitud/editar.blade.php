@@ -18,11 +18,15 @@ FORM.tr, DIV.tr
     border: 1px solid black;
     padding: 20px;
     text-align: left;
+
 }
 
-FORM.tr, DIV.tr:hover
+FORM.tr:nth-child(even) {background-color: #f2f2f2;}
+DIV.tr:nth-child(even) {background-color: #f2f2f2;}
+
+FORM.tr:hover, DIV.tr:hover
 {
-    background-color: #f5f5f5;
+    background-color: #9EC6DF;
 }
 
 SPAN.td
@@ -292,10 +296,7 @@ SPAN.td
                               
                               </tbody>
                           </table>
-
-
-
-                          <div class="table table-striped table-bordered table-hover">
+                          <div class="table">
                             @foreach($subrecs as $sub)
                              @if($sub->recid == $rec->recid && $sub->req_nota==1)
                               @foreach($SolSubI as $ssi)
@@ -304,10 +305,10 @@ SPAN.td
                                   {!!method_field('PUT')!!}
                                   {!!csrf_field()!!}
                                   <input type="hidden" name="subrecid" value="{{$sub->subrecid}}">
-                                  <span class="td">{{$sub->nombre}}</span>
+                                  <span class="td"><p style="position: relative; top: 60px;">{{$sub->nombre}}</p></span>
                                   <span class="td">
                                     
-                                    <select style="position: relative; top: 30px;" name="accion" id="accion">
+                                    <select style="position: relative; top: 60px;" name="accion" id="accion">
                                      |<option value="{{$ssi->accion}}">{{$ssi->accion}}</option>
                                      <option>No Seleccionar</option>
                                      <option>CREAR</option>
@@ -319,12 +320,14 @@ SPAN.td
                                   </span>
                                   <span class="td">
                                     <br>
+                                    <strong>{{$sub->tag_nota}}</strong>
+                                    <br>
                                     <textarea style="width: 200px; height: 100px;" name='tag'>{{$ssi->tag}}</textarea>
                                     <br>
                                     <br>
                                   </span>
                                   <span class="td">
-                                    <button type="submit" class="btn btn-danger" name="actualizar" value="actualizar">Editar</button>
+                                    <button style="position: relative; top: 60px;" type="submit" class="btn btn-danger" name="actualizar" value="actualizar">Editar</button>
                                   </span>
                                 </form>
                                 @endif
@@ -371,9 +374,9 @@ SPAN.td
                                   {!!method_field('PUT')!!}
                                   {!!csrf_field()!!}
                                   <input type="hidden" name="subrecid" value="{{$te->subrecid}}">
-                                  <span class="td">{{$te->nombre}}</span>
+                                  <span class="td"><p style="position: relative; top: 60px;">{{$te->nombre}}</p></span>
                                   <span class="td">
-                                    <select style="position: relative; top: 30px;" name="accion" id="accion">
+                                    <select style="position: relative; top: 60px;" name="accion" id="accion">
                                       <option>No Seleccionar</option>
                                       <option>CREAR</option>
                                       <option>MODIFICAR</option>
@@ -382,12 +385,13 @@ SPAN.td
                                   </span>
                                   <span class="td">
                                     <br>
+                                    <strong>{{$te->tag_nota}}</strong>
                                     <textarea style="width: 200px; height: 100px;" name='tag'></textarea>
                                     <br>
                                     <br>
                                   </span>
                                   <span class="td">
-                                    <button type="submit" class="btn btn-danger" name="crear" value="crear">Editar</button>
+                                    <button style="position: relative; top: 60px;" type="submit" class="btn btn-danger" name="crear" value="crear">Editar</button>
                                   </span>
                                 </form>
                                 @endif

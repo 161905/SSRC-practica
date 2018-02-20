@@ -24,9 +24,7 @@
 
 
         <form  action="{{route('solicitud.store')}}" method="POST"
-
-                    enctype="multipart/form-data" 
-                      >
+                    enctype="multipart/form-data" >
 
                     {!!csrf_field()!!}
 

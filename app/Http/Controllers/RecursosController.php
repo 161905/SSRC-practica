@@ -21,9 +21,11 @@ class RecursosController extends Controller
 
         $userrs = DB::table('users')->get();
         $clasi = DB::table('clasificacion')->get();
+
+        $subrecs = DB::table('subrecursos')->get();
         
         $recurs = DB::table('recursos')->get();
-        return view('recursos.index', ['recurs' => $recurs, 'userrs' => $userrs, 'clasi' => $clasi, 'SB_S' => $SB_S, 'SB_R' => $SB_R]);
+        return view('recursos.index', ['recurs' => $recurs, 'userrs' => $userrs, 'clasi' => $clasi, 'SB_S' => $SB_S, 'SB_R' => $SB_R, 'subrecs' => $subrecs]);
     /*
      * Show the form for creating a new resource.
      *

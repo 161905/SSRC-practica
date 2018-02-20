@@ -17,8 +17,8 @@ class SubrecursosController extends Controller
         $recurs = DB::table('recursos')->get();
         $subrecs = DB::table('subrecursos')->get();
 
-        $SB_S = DB::table('solicitud');
-        $SB_R = DB::table('recursos');
+        $SB_S = DB::table('solicitud')->get();
+        $SB_R = DB::table('recursos')->get();
 
 
 

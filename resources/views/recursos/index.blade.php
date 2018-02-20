@@ -11,6 +11,35 @@
     </style>
 
 @endsection
+<style>
+DIV.table 
+{
+    display:table;
+    border: 1px solid black;
+    text-align: left;
+
+}
+FORM.tr, DIV.tr
+{
+    display:table-row;
+    border: 1px solid black;
+    padding: 20px;
+    text-align: left;
+}
+
+FORM.tr, DIV.tr:hover
+{
+    background-color: #9EC6DF;
+}
+
+SPAN.td
+{
+    display:table-cell;
+    border: 1px solid black;
+    padding: 20px;
+    text-align: left;
+}
+</style>
 
 
 @section('main-content')
@@ -105,16 +134,22 @@
                                                 </h1>
                                             </div>
                                             <div class="modal-body">
-                                            <p style="border-style: solid;">
-                                              <strong>NOMBRE: </strong>{{$rec->nombre}}
-                                            </p>
+                                              <div class="table">
+                                              <div class="tr">
+                                                <span class="td" style="background-color: #E6E6E6;"><strong>Nombre: </strong></span>
+                                                <span class="td">{{$rec->nombre}}</span>
+                                              </div>
 
-                                            <p style="border-style: solid;">
-                                              <strong>ID RECURSO: </strong>{{$rec->recid}}
-                                            </p>
+                                              <div class="tr">
+                                                <span class="td" style="background-color: #E6E6E6;"><strong>Id Recurso: </strong></span>
+                                                <span class="td">{{$rec->recid}}</span>
+                                              </div>
+                                
+                              
 
-                                            <p style="border-style: solid;">
-                                              <strong>CLASIFICACION: </strong>
+                                            <div class="tr">
+                                              <span class="td" style="background-color: #E6E6E6;"><strong>CLASIFICACION: </strong></span>
+                                              <span class="td">
                                               <?php
                                                 if ($rec->idClasifica == NULL){
                                                     print("<strong>[SIN CLASIFICACION]</strong>");
@@ -128,13 +163,23 @@
 
                                                 }
                                                 ?>
-                                            </p>
+                                              </span>
+                                            </div>
 
-                                            <p style="border-style: solid;">
-                                              <strong>PAIS: </strong>{{$rec->pais}}
-                                            </p>
-                                            <p style="border-style: solid;">
-                                              <strong>APROBADOR: </strong>
+                                            <div class="tr">
+                                            <span class="td"  style="background-color: #E6E6E6;">
+                                              <strong>PAIS: </strong>
+                                            </span>
+                                            <span class="td">
+                                              {{$rec->pais}}
+                                            </span>
+                                           </div>
+
+
+                                            <div class="tr">
+                                              <span class="td"  style="background-color: #E6E6E6;"><strong>APROBADOR: </strong>
+                                              </span>
+                                              <span class="td">
                                             <?php
                                                 if ($rec->idAprobador == NULL){
                                                     print("<strong>[FALTA]</strong>");
@@ -148,10 +193,14 @@
 
                                                 }
                                             ?>
-                                            </p>
+                                            </span>
+                                            </div>
 
-                                            <p style="border-style: solid;">
+                                            <div class="tr">
+                                              <span class="td" style="background-color: #E6E6E6;">
                                               <strong>EJECTUTOR: </strong>
+                                              </span>
+                                              <span class="td">
                                             <?php
                                                 if ($rec->idEjecutor == NULL){
                                                     print("<strong>[FALTA]</strong>");
@@ -164,13 +213,24 @@
                                                     }
 
                                                 }
-                                            ?>
-                                            </p>
-                                            <p style="border-style: solid;">
-                                              <strong>TIPO RECURSO: </strong>{{$rec->tipo_r}}
-                                            </p>
-                                            <p style="border-style: solid;">
-                                              <strong>MAIL GSD: </strong><?php
+                                            ?></span>
+                                            </div>
+
+                                            <div class="tr">
+                                              <span class="td" style="background-color: #E6E6E6;">
+                                                <strong>TIPO RECURSO: </strong>
+                                              </span>
+                                              <span class="td">
+                                                {{$rec->tipo_r}}
+                                              </span>
+                                            </div>
+                                            
+                                            <div class="tr">
+                                              <span class="td" style="background-color: #E6E6E6;">
+                                              <strong>MAIL GSD: </strong>
+                                              </span>
+                                              <span class="td">
+                                                <?php
                                                 if ($rec->mail_gsd == 1){
                                                     print("SI");
                                                 }
@@ -179,23 +239,66 @@
 
                                                 }
                                             ?>
-                                            </p>
-                                            <p style="border-style: solid;">
-                                              <strong>CODIGO GS: </strong>{{$rec->cod_gsd}}
-                                            </p>
+                                            </span>
+                                            </div>
 
-
-                                            <p style="border-style: solid;">
-                                              <strong>NOTA: </strong>{{$rec->nota}}
-                                            </p>
-
-
+                                            <div class="tr">
+                                              <span class="td" style="background-color: #E6E6E6;">
+                                              <strong>CODIGO GSD: </strong>
+                                              </span>
+                                              <span class="td">
+                                              {{$rec->cod_gsd}}
+                                            </span>
                                             </div>
 
 
+                                            <div class="tr">
+                                              <span class="td" style="background-color: #E6E6E6;">
+                                              <strong>NOTA: </strong>
+                                              </span>
+                                              <span class="td">
+                                              {{$rec->nota}}
+                                            </span>
+                                            </div>
+                                            </div>
 
+
+                                            
+
+                                            <h2><strong>Subrecursos asociados</strong></h2>
+                                            <div class="table">
+                                            <div class="tr" style="background-color: #E6E6E6;">
+                                              <span class="td">
+                                                <strong>ID Subrecurso</strong>
+                                              </span>
+                                              <span class="td">
+                                                <strong>Nombre</strong>
+                                              </span>
+
+                                            </div>
+                                            @foreach($subrecs as $sub)
+                                            @if($sub->recid == $rec->recid)
+                                            <div class="tr">
+                                              <span class="td">
+                                              {{$sub->subrecid}}
+                                              </span>
+                                              <span class="td">
+                                              {{$sub->nombre}}
+                                              <br>
+                                              </span>
+                                            </div>
+                                             @endif
+                                            @endforeach
+
+                                            </div>
+                                          </div>
                                             <div class="modal-footer">
+
+
+
                                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                              
+                                              
                                             </div>
                                         </div>
                                         <!-- /.modal-content -->

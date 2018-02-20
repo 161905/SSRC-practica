@@ -287,18 +287,38 @@ class SolicitudController extends Controller
 //        $Estado = $request->input('Estado');
         $date = date('Y-m-d H:i:s');
         $save = $date;
-        DB::table('solicitud')->insert([
-            'idCreador' => $idCreador,
-            'idSolicitante' => $idSolicitante,
-            'idSupervisor' => $idSupervisor,
-            'recid' => $recid,
-            'pais' => $pais,
-            'Estado' => $Estado,
-            'created_at' => $save,
-            'updated_at' => $save,
-            'aneContrato' => $aneContrato,
-            'compromisoReserva' =>  $request->file('compromisoReserva')->store('public'),
-        ]);
+
+        $usuario = DB::table('users')->where('id',$idCreador)->first();
+
+        if($usuario->tipo == 'CONTRATISTA'){
+            DB::table('solicitud')->insert([
+                'idCreador' => $idCreador,
+                'idSolicitante' => $idSolicitante,
+                'idSupervisor' => $idSupervisor,
+                'recid' => $recid,
+                'pais' => $pais,
+                'Estado' => $Estado,
+                'created_at' => $save,
+                'updated_at' => $save,
+                'aneContrato' => $aneContrato,
+                'compromisoReserva' =>  $request->file('compromisoReserva')->store('public'),
+            ]);
+        }
+        else{
+            DB::table('solicitud')->insert([
+                'idCreador' => $idCreador,
+                'idSolicitante' => $idSolicitante,
+                'idSupervisor' => $idSupervisor,
+                'recid' => $recid,
+                'pais' => $pais,
+                'Estado' => $Estado,
+                'created_at' => $save,
+                'updated_at' => $save,
+                'aneContrato' => $aneContrato,
+                'compromisoReserva' =>  NULL,
+            ]);
+
+        }
         $numeroSol = DB::table('solicitud')->get()->where('created_at','=',$save);
         $subrecidr = DB::table('subrecursos')->get()->where('recid','=',$recid);
 
