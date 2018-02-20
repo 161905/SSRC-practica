@@ -2,7 +2,7 @@
 Sistema de Solicitud de Recursos Computacionales
 
 
-##Instalaciones previas
+## Instalaciones previas
 Se debe instalar:
 1.[Laravel 5.5](https://laravel.com/docs/5.5/installation). En la terminal de Windows (cmd) ejecutar el siguiente comando:
 ```
@@ -18,14 +18,15 @@ php -r "unlink('composer-setup.php');"
 
 ```
 3.[WampServer](http://www.wampserver.com/en/)
+
 4.[Laragon](https://laragon.org/): Incluye Laravel, MySql, un gestor de BD, un editor de texto, etc.
 
 Opcional: 
-*[Sublime Text](https://www.sublimetext.com/) para codificar.
-*[MySQL](https://dev.mysql.com/downloads/installer/) para tener la interfaz de comandos.
+-[Sublime Text](https://www.sublimetext.com/) para codificar.
+-[MySQL](https://dev.mysql.com/downloads/installer/) para tener la interfaz de comandos.
 
 
-##Correr el programa
+## Correr el programa
 El repositorio debe clonarse en:
 ```
 C:\laragon\www\
@@ -53,7 +54,7 @@ php artisan serve
 
 En este punto el programa un no es funcional al no existir base de datos, pero debería poder ver las vistas.
 
-##Configuración de Base de Datos
+## Configuración de Base de Datos
 ```
 Debe abrir el archivo .env y modificar los siguientes parametros:
 DB_DATABASE=(Nombre de BD que creara)
