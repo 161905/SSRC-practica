@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)http://127.0.0.1:8000/solicitud/create2TercerosC/2 -->
+<html lang="en" style="height: auto;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title> Sistema de Solicitud de Recursos Computacionales     Change Title here!
+ </title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="KaFkukuQP5XM2ycPMJRbDC22QtSCl6ilzky7rUwA">
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="./Crear_Solicitud_Terceros_Contratistas_Datos_files/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="./Crear_Solicitud_Terceros_Contratistas_Datos_files/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="./Crear_Solicitud_Terceros_Contratistas_Datos_files/bootstrap.min.js.descarga" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script><style></style>
+
+
+    
+    <link href="./Crear_Solicitud_Terceros_Contratistas_Datos_files/select2.min.css" rel="stylesheet">
+    <link href="./Crear_Solicitud_Terceros_Contratistas_Datos_files/all.css" rel="stylesheet" type="text/css">
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script>
+        //See https://laracasts.com/discuss/channels/vue/use-trans-in-vuejs
+        window.trans = {"auth":{"failed":"These credentials do not match our records.","throttle":"Too many login attempts. Please try again in :seconds seconds."},"pagination":{"previous":"&laquo; Previous","next":"Next &raquo;"},"passwords":{"password":"Passwords must be at least six characters and match the confirmation.","reset":"Your password has been reset!","sent":"We have e-mailed your password reset link!","token":"This password reset token is invalid.","user":"We can't find a user with that e-mail address."},"validation":{"accepted":"The :attribute must be accepted.","active_url":"The :attribute is not a valid URL.","after":"The :attribute must be a date after :date.","after_or_equal":"The :attribute must be a date after or equal to :date.","alpha":"The :attribute may only contain letters.","alpha_dash":"The :attribute may only contain letters, numbers, and dashes.","alpha_num":"The :attribute may only contain letters and numbers.","array":"The :attribute must be an array.","before":"The :attribute must be a date before :date.","before_or_equal":"The :attribute must be a date before or equal to :date.","between":{"numeric":"The :attribute must be between :min and :max.","file":"The :attribute must be between :min and :max kilobytes.","string":"The :attribute must be between :min and :max characters.","array":"The :attribute must have between :min and :max items."},"boolean":"The :attribute field must be true or false.","confirmed":"The :attribute confirmation does not match.","date":"The :attribute is not a valid date.","date_format":"The :attribute does not match the format :format.","different":"The :attribute and :other must be different.","digits":"The :attribute must be :digits digits.","digits_between":"The :attribute must be between :min and :max digits.","dimensions":"The :attribute has invalid image dimensions.","distinct":"The :attribute field has a duplicate value.","email":"The :attribute must be a valid email address.","exists":"The selected :attribute is invalid.","file":"The :attribute must be a file.","filled":"The :attribute field must have a value.","image":"The :attribute must be an image.","in":"The selected :attribute is invalid.","in_array":"The :attribute field does not exist in :other.","integer":"The :attribute must be an integer.","ip":"The :attribute must be a valid IP address.","ipv4":"The :attribute must be a valid IPv4 address.","ipv6":"The :attribute must be a valid IPv6 address.","json":"The :attribute must be a valid JSON string.","max":{"numeric":"The :attribute may not be greater than :max.","file":"The :attribute may not be greater than :max kilobytes.","string":"The :attribute may not be greater than :max characters.","array":"The :attribute may not have more than :max items."},"mimes":"The :attribute must be a file of type: :values.","mimetypes":"The :attribute must be a file of type: :values.","min":{"numeric":"The :attribute must be at least :min.","file":"The :attribute must be at least :min kilobytes.","string":"The :attribute must be at least :min characters.","array":"The :attribute must have at least :min items."},"not_in":"The selected :attribute is invalid.","numeric":"The :attribute must be a number.","present":"The :attribute field must be present.","regex":"The :attribute format is invalid.","required":"The :attribute field is required.","required_if":"The :attribute field is required when :other is :value.","required_unless":"The :attribute field is required unless :other is in :values.","required_with":"The :attribute field is required when :values is present.","required_with_all":"The :attribute field is required when :values is present.","required_without":"The :attribute field is required when :values is not present.","required_without_all":"The :attribute field is required when none of :values are present.","same":"The :attribute and :other must match.","size":{"numeric":"The :attribute must be :size.","file":"The :attribute must be :size kilobytes.","string":"The :attribute must be :size characters.","array":"The :attribute must contain :size items."},"string":"The :attribute must be a string.","timezone":"The :attribute must be a valid zone.","unique":"The :attribute has already been taken.","uploaded":"The :attribute failed to upload.","url":"The :attribute format is invalid.","custom":{"attribute-name":{"rule-name":"custom-message"}},"attributes":[]},"adminlte_lang_message":{"logged":"You are logged in!","someproblems":"There were some problems with your input.","siginsession":"Sign in to start your session","remember":"Remember Me","buttonsign":"Sign In","forgotpassword":"I forgot my password","registermember":"Register a new membership","terms":"I agree to the terms","conditions":"Terms and conditions","register":"Register","login":"Login","membreship":"I already have a membership","passwordclickreset":"Click here to reset your password:","signGithub":"Sign in using Github","signFacebook":"Sign in using Facebook","signTwitter":"Sign in using Twitter","signGoogle+":"Sign in using Google+","signLinkedin":"Sign in using Linkedin","sendpassword":"Send Password Reset Link","passwordreset":"Reset password","pagenotfound":"Page not found","404error":"404 Error Page","notfindpage":"We could not find the page you were looking for.","mainwhile":"Meanwhile, you may","returndashboard":"return to dashboard","usingsearch":"or try using the search form.","search":"Search","servererror":"Server Error","500error":"500 Error Page","somethingwrong":"Something went wrong.","wewillwork":"We will work on fixing that right away.","serviceunavailable":"Service unavailable","503error":"503 Error Page","level":"Level","here":"Here","recentactivity":"Recent Activity","descriptionpackage":"A Laravel 5 package that switchs default Laravel scaffolding\/boilerplate to AdminLTE template","createdby":"Created by","seecode":"See code at","online":"Online","home":"Home","header":"HEADER","anotherlink":"Another Link","multilevel":"Multilevel","linklevel2":"Link in level2","birthday":"Langdon's Birthday","birthdaydate":"Will be 23 on April 24th","progress":"Tasks Progress","customtemplate":"Custom Template Design","statstab":"Stats Tab Content","generalset":"General Settings","reportpanel":"Report panel usage","checked":"checked","informationsettings":"Some information about this general settings option","togglenav":"Toggle navigation","tabmessages":"You have 4 messages","supteam":"Support Team","awesometheme":"Why not buy a new awesome theme?","allmessages":"See All Messages","notifications":"You have 10 notifications","newmembers":"5 new members joined today","viewall":"View all","tasks":"You have 9 tasks","alltasks":"View all tasks","desbuttons":"Design some buttons","complete":"Complete","membersince":"Member since","followers":"Followers","sales":"Sales","friends":"Friends","profile":"Profile","signout":"Sign out","landingdescription":"Laravel 5 package that switchs default Laravel scaffolding\/boilerplate to AdminLTE template with Bootstrap 3.0 and Pratt Landing page","landingdescriptionpratt":"Acacha AdminLTE Laravel package template Landing page - Using Pratt","description":"Description","showcase":"Showcase","contact":"Contact","laravelpackage":"5 package that switchs default Laravel","to":"to","templatewith":"template with","and":"and","gedstarted":"Get Started!","amazing":"Amazing admin template","basedadminlte":"Based on adminlte bootstrap theme","awesomepackaged":"Awesome packaged...","by":"by","at":"at","readytouse":"ready to use with Laravel!","designed":"Designed To Excel","community":"Community","see":"See","githubproject":"Github project","post":"post","issues":"issues","pullrequests":"Pull requests","schedule":"Schedule","monitoring":"Monitoring","whatnew":"What's New?","features":"Some Features","design":"First Class Design","retina":"Retina Ready Theme","support":"Awesome Support","responsive":"Responsive Design","screenshots":"Some Screenshots","address":"Address","dropus":"Drop Us A Line","yourname":"Your Name","emailaddress":"Email Address","enteremail":"Enter Email","yourtext":"Your Text","submit":"SUBMIT","email":"Email","username":"Username","password":"Password","retypepassword":"Retype password","fullname":"Full Name","registererror":"Error registering!","loginerror":"Error loging!","loggedin":"Logged in!","entering":"Entering...","registered":"User Registered!"}}    </script>
+<style>
+.dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+    background-color: #2980B9;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {background-color: #f1f1f1}
+
+.show {display:block;}
+
+.myButton {
+    -moz-box-shadow:inset 0px 39px 0px -24px #e67a73;
+    -webkit-box-shadow:inset 0px 39px 0px -24px #e67a73;
+    box-shadow:inset 0px 39px 0px -24px #e67a73;
+    background-color:#e4685d;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    border-radius:4px;
+    border:1px solid #ffffff;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    padding:6px 15px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #b23e35;
+    width: 110px;
+    text-align: center;
+    
+}
+.myButton:hover {
+    background-color:#eb675e;
+    width: 110px;
+}
+.myButton:active {
+    position:relative;
+    top:1px;
+    width: 110  px;
+}
+
+.myButton2 {
+    -moz-box-shadow:inset 0px 39px 0px -24px #e67a73;
+    -webkit-box-shadow:inset 0px 39px 0px -24px #e67a73;
+    box-shadow:inset 0px 39px 0px -24px #DDD910;
+    background-color:#BDBA0E;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    border-radius:4px;
+    border:1px solid #ffffff;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    padding:6px 15px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #b23e35;
+    width: 110px;
+    text-align: center;
+    
+}
+.myButton2:hover {
+    background-color:#93DD10;
+    box-shadow:inset 0px 39px 0px -24px #93DD10;
+    width: 110px;
+}
+.myButton2  :active {
+    position:relative;
+    top:1px;
+    width: 110  px;
+}
+
+.myButton4 {
+    -moz-box-shadow:inset 0px 39px 0px -24px #e67a73;
+    -webkit-box-shadow:inset 0px 39px 0px -24px #e67a73;
+    box-shadow:inset 0px 39px 0px -24px #5ED88D;
+    background-color:#5ED8BD;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    border-radius:4px;
+    border:1px solid #ffffff;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    padding:6px 15px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #b23e35;
+    width: 110px;
+    text-align: center;
+    
+}
+.myButton4:hover {
+    background-color: #8BEC85;
+    box-shadow:inset 0px 39px 0px -24px #8BEC85;
+    width: 110px;
+}
+.myButton4 :active {
+    position:relative;
+    top:1px;
+    width: 110  px;
+}
+
+.myButton5{
+    -moz-box-shadow:inset 0px 39px 0px -24px #e67a73;
+    -webkit-box-shadow:inset 0px 39px 0px -24px #e67a73;
+    box-shadow:inset 0px 39px 0px -24px #FF5757;
+    background-color:red;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    border-radius:4px;
+    border:1px solid #ffffff;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    padding:6px 15px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #b23e35;
+    width: 110px;
+    text-align: center;
+    
+}
+.myButton5:hover {
+    background-color: #FFBD57;
+    box-shadow:inset 0px 39px 0px -24px #FFBD57;
+    width: 110px;
+}
+.myButton5 :active {
+    position:relative;
+    top:1px;
+    width: 110  px;
+}
+
+
+
+
+
+
+</style>
+
+
+<style type="text/css">
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 1s ease;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}</style><style type="text/css">
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 1s ease;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}</style><style type="text/css">
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 1s ease;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}</style><style type="text/css">
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 1s ease;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}</style></head>
+
+<!--
+BODY TAG OPTIONS:
+=================
+Apply one or more of the following classes to get the
+desired effect
+|---------------------------------------------------------|
+| SKINS         | skin-blue                               |
+|               | skin-black                              |
+|               | skin-purple                             |
+|               | skin-yellow                             |
+|               | skin-red                                |
+|               | skin-green                              |
+|---------------------------------------------------------|
+|LAYOUT OPTIONS | fixed                                   |
+|               | layout-boxed                            |
+|               | layout-top-nav                          |
+|               | sidebar-collapse                        |
+|               | sidebar-mini                            |
+|---------------------------------------------------------|
+-->
+<body class="skin-blue sidebar-mini sidebar-collapse" style="height: auto;">
+<div id="app"><div class="wrapper" style="height: auto;"><header class="main-header"><a href="http://127.0.0.1:8000/home" class="logo" style="background: rgb(34, 45, 50);"><span class="logo-mini"><b><i class="fa fa-home" style="position: absolute; top: 15px; left: 15px;"></i></b></span> <span class="logo-lg" style="background-color: white;"><b><img width="150px" src="./Crear_Solicitud_Terceros_Contratistas_Datos_files/anglo-american-logo.png"></b></span></a> <nav role="navigation" class="navbar navbar-static-top" style="background: rgb(34, 45, 50); position: relative; width: auto;"><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#" data-toggle="offcanvas" role="button" class="sidebar-toggle"><span class="sr-only">Toggle navigation</span></a> <div class="navbar-custom-menu"><ul class="nav navbar-nav"><li class="dropdown messages-menu"><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-envelope-o"></i> <span class="label label-success">4</span></a> <ul class="dropdown-menu"><li class="header">You have 4 messages</li> <li><ul class="menu"><li><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#"><div class="pull-left"><img src="./Crear_Solicitud_Terceros_Contratistas_Datos_files/063697be8a2388e804f5f7d68c2ceee9.jpg" alt="User Image" class="img-circle"></div> <h4>
+                                            Support Team
+                                            <small><i class="fa fa-clock-o"></i> 5 mins</small></h4> <p>Why not buy a new awesome theme?</p></a></li></ul></li> <li class="footer"><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#">c</a></li></ul></li> <li class="dropdown notifications-menu"><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-bell-o"></i> <span class="label label-warning">10</span></a> <ul class="dropdown-menu"><li class="header">You have 10 notifications</li> <li><ul class="menu"><li><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#"><i class="fa fa-users text-aqua"></i> 5 new members joined today
+                                    </a></li></ul></li> <li class="footer"><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#">View all</a></li></ul></li> <li class="dropdown tasks-menu"><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#" data-toggle="dropdown" class="dropdown-toggle"><i class="fa fa-flag-o"></i> <span class="label label-danger">9</span></a> <ul class="dropdown-menu"><li class="header">You have 9 tasks</li> <li><ul class="menu"><li><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#"><h3>
+                                            You have 9 tasks
+                                            <small class="pull-right">20%</small></h3> <div class="progress xs"><div role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" class="progress-bar progress-bar-aqua" style="width: 20%;"><span class="sr-only">20% Complete</span></div></div></a></li></ul></li> <li class="footer"><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#">View all tasks</a></li></ul></li> <li id="user_menu" class="dropdown user user-menu"><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#" data-toggle="dropdown" class="dropdown-toggle"><img src="./Crear_Solicitud_Terceros_Contratistas_Datos_files/063697be8a2388e804f5f7d68c2ceee9.jpg" alt="User Image" class="user-image"> <span class="hidden-xs">CASCHIPMAN</span></a> <ul class="dropdown-menu"><li class="user-header"><img src="./Crear_Solicitud_Terceros_Contratistas_Datos_files/063697be8a2388e804f5f7d68c2ceee9.jpg" alt="User Image" class="img-circle"> <p>
+                                    Carlos Schipmann
+                                    <small>Login Jan. 2018</small></p></li> <li class="user-body"><div class="col-xs-4 text-center"><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#">Followers</a></div> <div class="col-xs-4 text-center"><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#">Sales</a></div> <div class="col-xs-4 text-center"><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#">Friends</a></div></li> <li class="user-footer"><div class="pull-left"><a href="http://127.0.0.1:8000/settings" class="btn btn-default btn-flat">Profile</a></div> <div class="pull-right"><a href="http://127.0.0.1:8000/logout" id="logout" onclick="event.preventDefault();
+                                                 document.getElementById(&#39;logout-form&#39;).submit();" class="btn btn-default btn-flat">
+                                        Sign out
+                                    </a> <form id="logout-form" action="http://127.0.0.1:8000/logout" method="POST" style="display: none;"><input type="hidden" name="_token" value="KaFkukuQP5XM2ycPMJRbDC22QtSCl6ilzky7rUwA"> <input type="submit" value="logout" style="display: none;"></form></div></li></ul></li> <li><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a></li></ul></div></nav></header> <aside class="main-sidebar" style="width: 300px;"><section class="sidebar"><div class="user-panel"><div class="pull-left image"><img src="./Crear_Solicitud_Terceros_Contratistas_Datos_files/063697be8a2388e804f5f7d68c2ceee9.jpg" alt="User Image" class="img-circle"></div> <div class="pull-left info"><p>Carlos Schipmann</p> <a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#"><i class="fa fa-circle text-success"></i> Online</a></div></div> <form action="http://127.0.0.1:8000/solicitud/create2TercerosC/2#" method="get" class="sidebar-form"><div class="input-group"><input type="text" name="q" placeholder="Search..." class="form-control"> <span class="input-group-btn"><button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button></span></div></form> <ul class="sidebar-menu"><li class="header" style="color: white;"><h4><strong>MENU</strong></h4></li> <li class="active"><a href="http://127.0.0.1:8000/home"><i class="fa fa-home"></i> <span style="width: 300px;">Inicio</span></a></li> <li class="treeview"><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#"><i class="fa fa-users"></i> <span style="width: 300px;">Seguridad y Usuarios</span><i class="fa fa-angle-left pull-right"></i></a> <ul class="treeview-menu" style="width: 300px;"><li><a href="http://127.0.0.1:8000/usuario/index">Usuarios</a></li> <li><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#">Carga Active Directory Anglo</a></li> <li><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#">Campos Active Directory</a></li> <li><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#">Reemplazos</a></li></ul></li> <li class="treeview"><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#"><i class="fa fa-table"></i> <span style="width: 300px;">Tablas Generales</span> <i class="fa fa-angle-left pull-right"></i></a> <ul class="treeview-menu" style="width: 300px;"><li><a href="http://127.0.0.1:8000/recursos/index">Recursos</a></li> <li><a href="http://127.0.0.1:8000/subrecursos/index">SubRecursos</a></li> <li><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#">Tarea de Recurso</a></li> <li><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#">Clasificacion de Recursos</a></li></ul></li> <li class="treeview"><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#"><i class="fa fa-send"></i> <span style="width: 300px;">Solicitudes</span> <i class="fa fa-angle-left pull-right"></i></a> <ul class="treeview-menu" style="width: 300px;"><li><a href="http://127.0.0.1:8000/solicitud/create">Crear Solicitud</a></li> <li><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#"><i class="fa fa-send"></i> <span style="width: 300px;">Crear solicitud para tercero </span> <i class="fa fa-angle-left pull-right"></i></a> <ul class="treeview-menu" style="width: 300px;"><li><a href="http://127.0.0.1:8000/solicitud/createTerceros">No contratista con cuenta de red</a></li> <li><a href="http://127.0.0.1:8000/solicitud/createTercerosC">Contratista con cuenta de red</a></li> <li><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#">Sin cuenta de red</a></li></ul></li> <li><a href="http://127.0.0.1:8000/solicitud/index">Consulta Solicitud</a></li> <li><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#"><i class="fa fa-user"></i> <span style="width: 300px;">Mis solicitudes</span> <i class="fa fa-angle-left pull-right"></i></a> <ul class="treeview-menu" style="width: 300px;"><li><a href="http://127.0.0.1:8000/solicitud/enviar">Editar y/o Enviar solicitud</a></li> <li><a href="http://127.0.0.1:8000/solicitud/solicitudescreadas">Solicitudes creadas</a></li> <li><a href="http://127.0.0.1:8000/solicitud/solicitudessolicitadas">Solicitudes solicitadas</a></li></ul></li> <li><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#"><i class="fa fa-user-circle"></i> <span style="width: 300px;">Supervisores</span> <i class="fa fa-angle-left pull-right"></i></a> <ul class="treeview-menu" style="width: 300px;"><li><a href="http://127.0.0.1:8000/solicitud/supervisor/index"><span>Aprobacion de Supervisor&nbsp;</span> <span class="label label-danger">
+                                        3                                    </span></a></li> <li><a href="http://127.0.0.1:8000/solicitud/index">Consulta Proceso</a></li></ul></li> <li><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#"><i class="glyphicon glyphicon-inbox"></i> <span style="width: 300px;">Dueño Rec. o SubRec.</span> <i class="fa fa-angle-left pull-right"></i></a> <ul class="treeview-menu" style="width: 300px;"><li><a href="http://127.0.0.1:8000/solicitud/due%C3%B1o/index"><span>Aprobacion de Recurso &nbsp; </span><span class="label label-danger">
+                                        2
+                                </span></a></li> <li><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#">Aprobacion de SubRecurso</a></li> <li><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#">Consulta Proceso</a></li></ul></li> <li><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#"><i class="glyphicon glyphicon-check"></i> <span style="width: 300px;">Ejecutores</span> <i class="fa fa-angle-left pull-right"></i></a> <ul class="treeview-menu" style="width: 300px;"><li><a href="http://127.0.0.1:8000/solicitud/ejecutor/index"><span>Ejecutar Solicitud&nbsp;</span><span class="label label-danger">
+                                    3                                </span></a></li> <li><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#">Ejecutar Tarea</a></li> <li><a href="http://127.0.0.1:8000/solicitud/create2TercerosC/2#">Consulta Proceso</a></li></ul></li></ul></li> <li><a href="http://127.0.0.1:8000/solicitud/reportabilidad"><i class="fa fa-pie-chart"></i> <span style="width: 300px;">Reportabilidad</span></a></li></ul></section></aside> <div class="content-wrapper" style="min-height: 626.6px;"><section class="content-header"><h1 align="center">
+        Sistema de Solicitud de Recursos Computacionales        <small></small></h1></section> <section class="content"><div class="container-fluid spark-screen"><div class="row"><header><h2 align="center">Recurso a solicitar: <strong>VTP</strong></h2> <h4 align="center">Dueño del recurso: 
+            <strong>
+            Maiyuang          </strong></h4> <h4 align="center">Ejecutor asignado: 
+            <strong>
+            Jose Anibal Poblete          </strong></h4></header> <div class="col-md-9 col-md-offset-1"><form action="http://127.0.0.1:8000/solicitud/createTercerosC" method="POST" enctype="multipart/form-data"><input type="hidden" name="_token" value="KaFkukuQP5XM2ycPMJRbDC22QtSCl6ilzky7rUwA"> <div class="panel-body"><div class="form-group"><div class="row"><div class="col-md-3"><div class="dropdown"><button type="button" onclick="solicitante()" class="dropbtn" style="background-color: green;">Solicitante</button> <div id="idSolicitante" class="dropdown-content"><input type="text" placeholder="Search.." id="solicitanteinput" onkeyup="filterFunctionSolicitante()"> <a type="button" onclick="solicitante2(&#39;JAPOBLE&#39;,&#39;5&#39;,&#39;12115599K&#39;,&#39;Jose Anibal Poblete&#39;,&#39;JAPOBLE&#39;,&#39;CONTRATISTA&#39;,&#39;CLLTO&#39;,&#39;japoblete@anglo.com&#39;)">Jose Anibal Poblete</a> <a type="button" onclick="solicitante2(&#39;CARCARM&#39;,&#39;8&#39;,&#39;11775599K&#39;,&#39;Carlos Carmona&#39;,&#39;CARCARM&#39;,&#39;CONTRATISTA&#39;,&#39;CLLTO&#39;,&#39;carlos.carmona@anglo.com&#39;)">Carlos Carmona</a> <a type="button" onclick="solicitante2(&#39;GRODRIGUEZr&#39;,&#39;10&#39;,&#39;76265749&#39;,&#39;Guacolda Rodriguez&#39;,&#39;GRODRIGUEZr&#39;,&#39;CONTRATISTA&#39;,&#39;CLSLC&#39;,&#39;grodriguez@anglo.com&#39;)">Guacolda Rodriguez</a></div></div></div> <div class="col-md-1">
+                                Solicitante:
+                                <br> <input type="text" id="idSolicitanter" value="" readonly="readonly" style="border: none; font-weight: 900;"> <input type="hidden" id="idSolicitanter2" name="idSolicitante" value="" readonly="readonly" style="border: none; font-weight: 900;"></div></div></div></div> <div class="panel-body"><div class="form-group"><table class="table table-striped table-bordered table-hover"><tbody><tr><td><strong>ID Solicitante</strong></td> <td><div id="idSolicitanter3"></div></td></tr> <tr><td><strong>Nombre Solicitante</strong></td> <td><div id="idSolicitanter5"></div></td></tr> <tr><td><strong>RUT Solicitante</strong></td> <td><div id="idSolicitanter4"></div></td></tr> <tr><td><strong>Correo del Solicitante</strong></td> <td><div id="idSolicitanter8"></div></td></tr> <tr><td><strong>Tipo de usuario del Solicitante</strong></td> <td><div id="idSolicitanter6"></div></td></tr> <tr><td><strong>Division</strong></td> <td><div id="idSolicitanter7"></div></td></tr></tbody></table></div></div> <input type="hidden" name="idCreador" value="3"> <input type="hidden" name="recid" value="2"> <div class="panel-body"><div class="form-group"><div class="row"><div class="col-md-3"><div class="dropdown"><button type="button" onclick="supervisor()" class="dropbtn">Supervisor</button> <div id="idSupervisor" class="dropdown-content"><input type="text" placeholder="Search.." id="supervisorinput" onkeyup="filterFunction()"> <a type="button" onclick="supervisor2(&#39;USERTEST&#39;,&#39;1&#39;,&#39;tikajo1@hotmail.com&#39;)">Nombre Apellido Test</a> <a type="button" onclick="supervisor2(&#39;CASCHIPMAN&#39;,&#39;3&#39;,&#39;carlos@anglo.com&#39;)">Carlos Schipmann</a> <a type="button" onclick="supervisor2(&#39;EDUHO&#39;,&#39;6&#39;,&#39;eduho@anglo.com&#39;)">Eduardo Ho</a></div></div></div> <div class="col-md-1">
+                                Supervisor:
+                                <br> <input type="text" id="idSupers" value="" readonly="readonly" style="border: none; font-weight: 900;"> <br>
+                                Correo supervisor:
+                                <br> <input type="text" id="idSupers3" value="" readonly="readonly" style="border: none; font-weight: 900;"> <input type="hidden" id="idSupers2" name="idSupervisor" value="" readonly="readonly" style="border: none; font-weight: 900;"></div></div></div></div> <div class="panel-body"><div class="form-group"><label for="aneContrato"><h4><strong>Numero de Contrato</strong></h4></label> <input type="aneContrato" name="aneContrato" id="aneContrato" placeholder="Ingresar numero de contrato" class="form-control" style="width: 400px;"></div></div> <div class="panel-body"><div class="form-group"><label for="compromisoReserva"><h4><strong>Adjunte compromiso de reserva</strong></h4></label> <input type="file" name="compromisoReserva"></div></div> <br> <div class="panel-body"><div class="form-group"><a type="button" href="http://127.0.0.1:8000/storage/compromisoReserva.pdf" class="btn btn-info">Descargar compromiso de reserva</a></div></div> <div class="panel-body"><div class="form-group"><div class="row"><div class="col-md-3"><label for="pais">Seleccione pais:</label> <select name="pais" id="pais" class="form-group"><option value="CL">CHILE</option> <option value="PE">PERU</option> <option value="[OTRO]">OTRO</option></select></div></div></div></div> <table class="table table-striped table-bordered table-hover"><thead class="thead-inverse"><tr><th scope="col">ID SUBRECURSO</th> <th scope="col">Nombre</th> <th scope="col">Accion</th> <th scope="col">Valor</th></tr></thead> <tbody><tr><td align="center"><span>6</span></td> <td><span>Usuario Escritura VP Geologia</span></td> <td align="center"><select name="subA-6"><option value="NADA"></option> <option value="CREAR">CREAR</option> <option value="MODIFICAR">MODIFICAR</option> <option value="ELIMINAR">ELIMINAR</option></select></td></tr> <tr><td align="center"><span>7</span></td> <td><span>Usuario Lectura VP Geologia</span></td> <td align="center"><select name="subA-7"><option value="NADA"></option> <option value="CREAR">CREAR</option> <option value="MODIFICAR">MODIFICAR</option> <option value="ELIMINAR">ELIMINAR</option></select></td></tr> <tr><td align="center"><span>8</span></td> <td><span>Usuario Lectura VP Proyectos Peru/Quellaveco</span></td> <td align="center"><select name="subA-8"><option value="NADA"></option> <option value="CREAR">CREAR</option> <option value="MODIFICAR">MODIFICAR</option> <option value="ELIMINAR">ELIMINAR</option></select></td></tr></tbody></table> <button type="submit" name="grabar" value="grabar" class="btn btn-warning">Grabar</button> <button type="submit" name="enviar" value="enviar" class="btn btn-success">Enviar a supervisor</button> <a type="button" href="http://127.0.0.1:8000/solicitud/createTercerosC" class="btn btn-primary">Volver</a></form></div></div></div></section></div> <footer class="main-footer"></footer></div></div>
+    <!-- REQUIRED JS SCRIPTS -->
+
+<!-- JQuery and bootstrap are required by Laravel 5.3 in resources/assets/js/bootstrap.js-->
+<!-- Laravel App -->
+
+
+
+
+<script type="text/javascript">
+function columna0() {
+  // Declare variables 
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("TABLA0");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
+
+
+function columna1() {
+  // Declare variables 
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("TABLA1");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
+function columna2() {
+  // Declare variables 
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("TABLA2");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[2];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
+function columna3() {
+  // Declare variables 
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("TABLA3");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[3];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
+function columna4() {
+  // Declare variables 
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("TABLA4");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[4];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
+function columna5() {
+  // Declare variables 
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("TABLA5");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[5];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
+function columna6() {
+  // Declare variables 
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("TABLA6");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[6];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
+function columna7() {
+  // Declare variables 
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("TABLA7");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[7];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
+function columna8() {
+  // Declare variables 
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("TABLA8");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[8];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
+function columna9() {
+  // Declare variables 
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("TABLA9");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[9];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
+function columna10() {
+  // Declare variables 
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("TABLA10");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[10];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
+function columna11() {
+  // Declare variables 
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("TABLA11");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[11];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
+function columna12() {
+  // Declare variables 
+  var input, filter, table, tr, td, i;
+  input = document.getElementById("TABLA12");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("myTable");
+  tr = table.getElementsByTagName("tr");
+
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[12];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    } 
+  }
+}
+
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function supervisor() {
+    document.getElementById("idSupervisor").classList.toggle("show");
+}
+
+function solicitante() {
+    document.getElementById("idSolicitante").classList.toggle("show");
+}
+
+function recursos($id) {
+    document.getElementById($id).classList.toggle("show");
+}
+
+function filterFunction() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("supervisorinput");
+    filter = input.value.toUpperCase();
+    div = document.getElementById("idSupervisor");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+        if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+            a[i].style.display = "";
+        } else {
+            a[i].style.display = "none";
+        }
+    }
+}
+
+function filterFunctionSolicitante() {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("solicitanteinput");
+    filter = input.value.toUpperCase();
+    div = document.getElementById("idSolicitante");
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+        if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+            a[i].style.display = "";
+        } else {
+            a[i].style.display = "none";
+        }
+    }
+}
+
+function filterFunction2($id) {
+    var input, filter, ul, li, a, i;
+    input = document.getElementById("r-"+$id);
+    filter = input.value.toUpperCase();
+    div = document.getElementById($id);
+    a = div.getElementsByTagName("a");
+    for (i = 0; i < a.length; i++) {
+        if (a[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+            a[i].style.display = "";
+        } else {
+            a[i].style.display = "none";
+        }
+    }
+
+}
+
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+/*function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}*/
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+
+
+function pendientes(u) {
+    $("#TABLA5").val(u).keyup();
+    
+}
+
+function pendientes2(u) {
+    $("#TABLA4").val(u).keyup();
+    
+}
+
+function hora() {
+
+    Date.prototype.yyyymmdd = function() {
+      var mm = this.getMonth() + 1; // getMonth() is zero-based
+      var dd = this.getDate();
+
+      return [this.getFullYear(),
+              (mm>9 ? '' : '0') + mm,
+              (dd>9 ? '' : '0') + dd
+             ].join('-');
+    };
+
+
+    var date = new Date();
+    $("#TABLA6").val(date.yyyymmdd()).keyup();
+    
+}
+
+function hora2() {
+
+    Date.prototype.yyyymmdd = function() {
+      var mm = this.getMonth() + 1; // getMonth() is zero-based
+      var dd = this.getDate();
+
+      return [this.getFullYear(),
+              (mm>9 ? '' : '0') + mm,
+              (dd>9 ? '' : '0') + dd
+             ].join('-');
+    };
+
+
+    var date = new Date();
+    $("#TABLA5").val(date.yyyymmdd()).keyup();
+    
+}
+
+
+
+</script>
+
+
+<script src="./Crear_Solicitud_Terceros_Contratistas_Datos_files/app.js.descarga" type="text/javascript"></script>
+
+
+
+
+<!-- Optionally, you can add Slimscroll and FastClick plugins.
+      Both of these plugins are recommended to enhance the
+      user experience. Slimscroll is required when using the
+      fixed layout. -->
+
+
+
+</body></html>
