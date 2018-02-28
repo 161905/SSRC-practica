@@ -33,7 +33,11 @@
                     <input type="text" id="TABLA2" onkeyup="columna2()" placeholder="Buscar por Recurso..">
                     <input type="text" id="TABLA3" onkeyup="columna3()" placeholder="Buscar por Supervisor..">
                     <input type="text" id="TABLA4" onkeyup="columna4()" placeholder="Buscar por Estado..">
-
+                    <input type="text" id="TABLA5" onkeyup="columna5()" placeholder="Buscar por Fecha de Creacion..">
+                    <br><br>
+                    <button style="width: 200px" class="myButton2" onclick="pendientes2('SOLICITUD CREADA')">Solicitudes creadas</button>
+                    <button style="width: 200px" class="myButton5" onclick="pendientes2('RECHAZADO')">Solicitudes rechazadas</button>
+                    <button style="width: 200px" class="myButton4" onclick="hora2()">Solicitudes hoy</button>
                                 <table class="table table-striped table-bordered table-hover" id="myTable">.
 
                                   <thead class="thead-inverse">

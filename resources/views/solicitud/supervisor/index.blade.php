@@ -15,9 +15,14 @@
                     <input type="text" id="TABLA1" onkeyup="columna1()" placeholder="Buscar por Creador..">
                     <input type="text" id="TABLA2" onkeyup="columna2()" placeholder="Buscar por Solicitante..">
                     <input type="text" id="TABLA3" onkeyup="columna3()" placeholder="Buscar por Recurso..">
-                    <input type="text" id="TABLA4" onkeyup="columna4()" placeholder="Buscar por Estado..">
+                    <input type="text" id="TABLA5" onkeyup="columna5()" placeholder="Buscar por Estado..">
+                    <input type="text" id="TABLA6" onkeyup="columna6()" placeholder="Buscar por Fecha  de creacion..">
+                    <input type="text" id="TABLA11" onkeyup="columna11()" placeholder="Buscar por Ticket GSD..">
+                    <br><br>
+                    <button style="width: 200px" class="myButton2" onclick="pendientes('PENDIENTE DE SUPERVISOR')">Solicitudes pendientes</button>
+                    <button style="width: 200px" class="myButton4" onclick="hora()">Solicitudes hoy</button>
 
-                                <table class="table table-striped table-bordered table-hover" id="myTable">.
+                                <table class="table table-striped table-bordered table-hover" id="myTable">
 
                                   <thead class="thead-inverse">
                                     <tr>

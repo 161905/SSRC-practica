@@ -34,6 +34,7 @@ Route::group(['middleware' => 'auth'], function () {
     //RECURSOS, SUBRECURSOS Y USUARIOS VISTAS
     Route::get('recursos/index',['as'=>'recursos.index','uses'=>'RecursosController@index']);
     Route::get('recursos/show/{recid}',['as'=>'recursos.show','uses'=>'RecursosController@show']);
+    Route::post('recursos/index',['as'=>'recursos.store','uses'=>'RecursosController@store']);
 
     Route::get('subrecursos/index',['as'=>'subrecursos.index','uses'=>'SubrecursosController@index']);
     Route::get('subrecursos/show/{recid}',['as'=>'subrecursos.show','uses'=>'SubrecursosController@show']);
@@ -50,6 +51,15 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('solicitud/enviar',['as'=>'solicitud.enviar','uses'=>'SolicitudController@indexEnviar']);
     Route::get('solicitud/enviar2/{id}',['as'=>'solicitud.enviar2','uses'=>'SolicitudController@showEnviar']);
     Route::put('solicitud/enviar2/{id}',['as'=>'solicitud.enviar2.update','uses'=>'SolicitudController@enviarUpdate']);
+
+    Route::get('solicitud/solicitudescreadas',['as'=>'solicitud.solicitudescreadas','uses'=>'SolicitudController@indexSC']);
+    Route::get('solicitud/sc2/{id}',['as'=>'solicitud.sc2','uses'=>'SolicitudController@showSC']);
+    Route::put('solicitud/sc2/{id}',['as'=>'solicitud.sc2.update','uses'=>'SolicitudController@updateSC']);
+
+    Route::get('solicitud/solicitudessolicitadas',['as'=>'solicitud.solicitudessolicitadas','uses'=>'SolicitudController@indexSS']);
+    Route::get('solicitud/ss2/{id}',['as'=>'solicitud.ss2','uses'=>'SolicitudController@showSS']);
+    Route::put('solicitud/ss2/{id}',['as'=>'solicitud.ss2.update','uses'=>'SolicitudController@updateSS']);
+
 
 
     Route::get('solicitud/create',['as'=>'solicitud.create','uses'=>'SolicitudController@create']);
@@ -71,7 +81,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::put('solicitud/editar/{id}',['as'=>'solicitud.editar.update','uses'=>'SolicitudController@editarUpdate']);
 
 
-
+    Route::get('solicitud/reportabilidad',['as'=>'solicitud.reportabilidad','uses'=>'SolicitudController@indexReportabilidad']);
 
    
 

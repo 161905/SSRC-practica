@@ -19,9 +19,44 @@
               echo "$dueño->name";
             ?>
           </strong></h4>
+          <h4 align="center">Ejecutor asignado: 
+            <strong>
+            <?php
+            if($recurs->idEjecutor == NULL)
+              echo "[SIN EJECUTOR AUN]";
+            else
+              echo "$ejecutor->name";
+            ?>
+          </strong></h4>
         </header>
 			<div class="col-md-9 col-md-offset-1">
+        <table class="table table-striped table-bordered table-hover">
+          <tr>
+            <td><strong>ID Solicitante</strong></td>
+            <td>{{$user->userid}}</td>
+          </tr>
+          <tr>
+            <td><strong>Nombre Solicitante</strong></td>
+            <td>{{$user->name}}</td>
+          </tr>
+          <tr>
+            <td><strong>RUT Solicitante</strong></td>
+            <td>{{$user->rut}}</td>
+          </tr>
+          <tr>
+            <td><strong>Correo Solicitante</strong></td>
+            <td>{{$user->email}}</td>
+          </tr>
+          <tr>
+            <td><strong>Tipo de usuario del Solicitante</strong></td>
+            <td>{{$user->tipo}}</td>
+          </tr>
+          <tr>
+            <td><strong>Division</strong></td>
+            <td>{{$user->division}}</td>
+          </tr>
 
+        </table>
 
         <form  action="{{route('solicitud.store')}}" method="POST"
                     enctype="multipart/form-data" >
@@ -52,7 +87,7 @@
                     @if ($user->tipo === 'CONTRATISTA')
                     <div class="panel-body">
                         <div class="form-group">
-                            <label for="aneContrato">Numero de Contrato</label>
+                            <label for="aneContrato"><h4><strong>Numero de Contrato</strong></h4></label>
                             <input style="width: 400px;" type="aneContrato" name="aneContrato" class="form-control" id="aneContrato"  placeholder="Ingresar numero de contrato">
                             {{$errors->first('aneContrato')}}
                           </div>
@@ -60,7 +95,7 @@
                                                 
                         <div class="panel-body">
                             <div class="form-group">
-                               <label for="compromisoReserva">Adjunte compromiso de reserva</label>
+                               <label for="compromisoReserva"><h4><strong>Adjunte compromiso de reserva</strong></h4></label>
                                <input type="file" name="compromisoReserva">
                                <!--p class="help-block">Example block-level help text here.</p-->
                           </div>
@@ -97,20 +132,29 @@
                                           <br>
                                           <br>
                                           @foreach ($userrs as $usera )
-                                            <a type="button" onclick="supervisor2('{{$usera->userid}}','{{$usera->id}}')">{{$usera->name}}</a >
+                                            <a type="button" onclick="supervisor2('{{$usera->userid}}','{{$usera->id}}','{{$usera->email}}')">{{$usera->name}}</a >
                                           @endforeach
                                         </div>
 
                                     </div>  
                             </div>
-                            <div class="col-md-1">
+                            <div class="col-md-2">
                                 Supervisor:
                                 <br>
                                 <input style="
                                     border-width:0px;
                                     border:none;
                                     font-weight: 900;
+
                                 " type="text" id="idSupers" value="" readonly>  
+                                <br>
+                                Correo supervisor:
+                                <br>
+                                <input style="
+                                    border-width:0px;
+                                    border:none;
+                                    font-weight: 900;
+                                " type="text" id="idSupers3" value="" readonly>  
                                 <input style="
                                     border-width:0px;
                                     border:none;
@@ -218,9 +262,10 @@
 	</div>
 
 <script type="text/javascript">
-function supervisor2(u,id) {
+function supervisor2(u,id,email) {
     $("#idSupers").val(u);
     $("#idSupers2").val(id);
+    $("#idSupers3").val(email);
 }
 </script>
 @endsection

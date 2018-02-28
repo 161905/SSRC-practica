@@ -51,6 +51,18 @@
                                 </td>
                               </tr>
                               <tr>
+                                <th scope="row">Correo</th>
+                                <td>
+                                    <?php
+                                    foreach ($userrs as $us) {
+                                        if($us->id == $solis ->idSolicitante){
+                                            echo "{$us->email}";
+                                        }
+                                    }
+                                    ?>        
+                                </td>
+                              </tr>
+                              <tr>
                                 <th scope="row">Estado Solicitud</th>
                                 <td>{{$solis->Estado}}</td>
                               </tr>
@@ -217,6 +229,28 @@
 
                                   </h4></td>
                                 </tr>
+                                <tr>
+                                  <th scope="row"><h4><strong>Ejecutor</strong></h4></th>
+                                  <td colspan="3"><h4>
+                                       <?php
+                                      foreach ($recurs as $rec) {
+                                          if($rec->recid==$solis->recid){
+                                              if ($rec->idEjecutor == NULL){
+                                                  echo "<strong>[SIN DUEÑO]</strong>";
+                                              }
+                                              else{
+                                                  foreach ($userrs as $us) {
+                                                      if($us->id == $rec->idEjecutor){
+                                                          echo "{$us->name}";
+                                                      }
+                                                  }
+                                              }
+                                          }
+                                      }
+                                      ?>
+                                  </h4></td>
+                                </tr>
+
                                 <tr>
                                   <td colspan="7" align="center">
                                    <h4><strong>Subrecursos</strong></h4>

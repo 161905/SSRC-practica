@@ -43,7 +43,7 @@ SPAN.td
 
 
 @section('main-content')
-<div class="container">
+<div class="container-fluid spark-screen">
   <div class="row">
       <!--div class="col-md-9 col-md-offset-1"-->
       <div class="col-12">
@@ -311,7 +311,191 @@ SPAN.td
 
 
                           @endforeach
+
+                              <!--td><a class="myButton2" data-toggle="modal" data-target="#model-nuevo">
+                                <span class="glyphicon glyphicon-plus"></span>
+                              </a></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td-->
+
+                              <form  id="search_form" action="{{route('recursos.store')}}" method="POST">
+                                               {!!csrf_field()!!}
+                                              
+                              <div class="modal fade" id="model-nuevo" tabindex="" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                <h1 class="modal-title" id="myModalLabel">
+                                                    Nuevo recurso
+                                                </h1>
+                                            </div>
+                                            
+
+                                            
+                                            <div class="modal-body">
+                                               
+                                              <div class="table">
+                                              <div class="tr">
+                                                <span class="td" style="background-color: #E6E6E6;"><strong>Nombre: </strong></span>
+                                                <span class="td">
+
+                                                  <input type="text" name="nombre">
+                                                </span>
+                                              </div>
+
+                                            
+                                            <div class="tr">
+                                              <span class="td" style="background-color: #E6E6E6;"><strong>CLASIFICACION: </strong></span>
+                                              <span class="td">
+                                              <select name="idClasifica">
+                                                @foreach($clasi as $cl)
+
+                                                <option value="{{$cl->idClasifica}}">{{$cl->nombre}}</option>
+
+                                                @endforeach
+                                              </select>
+                                              </span>
+                                            </div>
+
+                                            <div class="tr">
+                                            <span class="td"  style="background-color: #E6E6E6;">
+                                              <strong>PAIS: </strong>
+                                            </span>
+                                            <span class="td">
+                                              <select name="pais">
+                                                <option value="CL">
+                                                  CHILE
+                                                </option>
+                                                <option value="PE">
+                                                  PERU
+                                                </option>
+                                                <option value="OT">
+                                                  OTRO
+                                                </option>
+                                              </select>
+                                            </span>
+                                           </div>
+
+
+                                            <div class="tr">
+                                              <span class="td"  style="background-color: #E6E6E6;"><strong>APROBADOR: </strong>
+                                              </span>
+                                              <span class="td">
+                                              
+                                                <select name="idAprobador">
+                                                  @foreach($userrs as $us)
+                                                  @if($us->perfil == "DUEÑO" || $us->perfil == "EJECUTOR")
+                                                  <option value="{{$us->id}}">{{$us->name}}</option>
+                                                  @endif
+                                                  @endforeach
+                                                </select>
+
+                                            </span>
+                                            </div>
+
+                                            <div class="tr">
+                                              <span class="td" style="background-color: #E6E6E6;">
+                                              <strong>EJECTUTOR: </strong>
+                                              
+                                              </span>
+                                              <span class="td">
+                                              <select name="idEjecutor">
+                                                  @foreach($userrs as $us)
+                                                  @if( $us->perfil == "EJECUTOR")
+                                                  <option value="{{$us->id}}">{{$us->name}}</option>
+                                                  @endif
+                                                  @endforeach
+                                                </select>
+                                            </span>
+                                            </div>
+
+                                            <div class="tr">
+                                              <span class="td" style="background-color: #E6E6E6;">
+                                                <strong>TIPO RECURSO: </strong>
+
+                                              </span>
+                                              <span class="td">
+                                                  
+                                                <select name="tipo_r">
+                                                  
+                                                  
+                                                  <option value="ELLIPSE">ELLIPSE</option>
+                                                  <option value="SAP">SAP</option>
+                                                  <option value="INVALIDO">INVALIDO</option>
+                                                  <option value="OTRO">OTRO</option>
+                                                </select>
+                                              </span>
+                                            </div>
+                                            
+                                            <div class="tr">
+                                              <span class="td" style="background-color: #E6E6E6;">
+                                              <strong>MAIL GSD: </strong>
+                                              </span>
+                                              <span class="td">
+                                                    <select id="test" name="mail_gsd" onchange="showDiv(this)">
+                                                       <option value="1">SI</option>
+                                                       <option value ="0">NO</option>
+                                                    </select>
+                                                   
+                                            </span>
+                                            </div>
+                                            <div id="hidden_div">
+                                            <div class="tr">
+                                              <span class="td" style="background-color: #E6E6E6;">
+                                              <strong>CODIGO GSD: </strong>
+
+
+
+                                              </span>
+                                              <span class="td">
+                                              <input type="text" name="cod_gsd" value="">
+                                            </span>
+                                            </div>
+
+
+                                            <div class="tr">
+                                              <span class="td" style="background-color: #E6E6E6;">
+                                              <strong>NOTA: </strong>
+                                              </span>
+                                              <span class="td">
+                                              <input type="text" name="nota" value="">
+                                            </span>
+                                            </div>
+                                            </div>
+                                            </div>
+
+
+                                            
+
+                                            
+                                          </div>
+                                            <div class="modal-footer">
+
+
+                                                <button type="submit" class="btn btn-warning">Grabar</button>
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                
+                                              
+                                            </div>
+                                            
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                
+                                    <!-- /.modal-dialog -->
+                                </div>
+                                <!-- /.modal -->
+                              
+                              </form>
                         </tbody>
+
                     </table>
 
 
@@ -319,5 +503,17 @@ SPAN.td
       </div>
   </div>
 </div>
+
+<script>
+function showDiv(elem){
+   if(elem.value == 1)
+      document.getElementById('hidden_div').style.display = "block";
+   if(elem.value == 0)
+      document.getElementById('hidden_div').style.display = "none";
+}
+
+ 
+
+</script>
 
 @endsection

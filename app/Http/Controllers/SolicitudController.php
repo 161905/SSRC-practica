@@ -39,6 +39,55 @@ class SolicitudController extends Controller
 
     }
 
+    public function indexReportabilidad()
+    {
+        //
+        $userrs = DB::table('users')->get();
+        $recurs = DB::table('recursos')->get();
+        $SolSub = DB::table('solicitud_subrecurso')->get();
+        $subrecs = DB::table('subrecursos')->get();
+        $solis = DB::table('solicitud')->get();
+
+        
+        $userid = Auth::id();
+
+
+        $SB_S = DB::table('solicitud')->get();
+        $SB_R = DB::table('recursos')->get();
+
+        $cantidad_sol = DB::table('solicitud')
+                 ->select('Estado', DB::raw('count(*) as num'))
+                 ->groupBy('Estado')
+                 ->get();
+
+
+
+
+        $cantidad_sol_p = DB::select( DB::raw("SELECT Estado, count(*) AS num FROM (SELECT numSol, Estado, idEjecutor FROM solicitud INNER JOIN recursos ON solicitud.recid=recursos.recid WHERE idEjecutor=:userid) as solRec GROUP BY Estado;"), array(
+           'userid' => $userid,
+         ));
+
+
+        $date = date('Y-m-d 00:00:00');
+
+        $soli_hora = DB::select( DB::raw("SELECT * FROM solicitud WHERE created_at>STR_TO_DATE(':date', '%Y-%m-%d %H:%i:%s');"), array(
+           'date' => $date,
+         ));
+
+        $ejecu_sol = DB::select( DB::raw("SELECT name, count(*) as num FROM(SELECT name,numSol,Estado,idEjecutor,subquery.created_at FROM (SELECT numSol,Estado,idEjecutor,solicitud.created_at FROM solicitud INNER JOIN recursos ON solicitud.recid=recursos.recid) as subquery INNER JOIN users ON subquery.idEjecutor=users.id) as subsubquery GROUP BY name;"));
+
+        $rec_sol = DB::select(DB::raw("SELECT nombre, count(*) as num FROM(SELECT numSol,Estado,nombre,solicitud.created_at FROM solicitud INNER JOIN recursos ON solicitud.recid=recursos.recid) as subquery GROUP BY nombre"));
+
+        
+        return view('solicitud.reportabilidad', ['recurs' => $recurs, 'userrs' => $userrs, 'subrecs' => $subrecs, 
+        'SolSub' => $SolSub, 'solis' => $solis, 'SB_S' => $SB_S, 'SB_R' => $SB_R,'cantidad_sol' => $cantidad_sol , 
+        'cantidad_sol_p' => $cantidad_sol_p,'soli_hora' => $soli_hora,'date' => $date, 'ejecu_sol' => $ejecu_sol,
+        'rec_sol' => $rec_sol]);
+ 
+
+
+    }
+
     public function indexEnviar()
     {
         //
@@ -65,6 +114,42 @@ class SolicitudController extends Controller
         'SolSub' => $SolSub, 'solis' => $solis,'solis2' => $solis2, 'solis3' => $solis3, 'solis4' => $solis4, 'SB_S' => $SB_S, 'SB_R' => $SB_R]);
 
     }
+
+    public function indexSS()
+    {
+        //
+        $userrs = DB::table('users')->get();
+        $recurs = DB::table('recursos')->get();
+        $SolSub = DB::table('solicitud_subrecurso')->get();
+        $subrecs = DB::table('subrecursos')->get();
+        $solis = DB::table('solicitud')->get();
+
+        $SB_S = DB::table('solicitud')->get();
+        $SB_R = DB::table('recursos')->get();
+
+        return view('solicitud.solicitudessolicitadas', ['recurs' => $recurs, 'userrs' => $userrs, 'subrecs' => $subrecs, 
+        'SolSub' => $SolSub, 'solis' => $solis, 'SB_S' => $SB_S, 'SB_R' => $SB_R]);
+
+    }
+
+    public function indexSC()
+    {
+        //
+        $userrs = DB::table('users')->get();
+        $recurs = DB::table('recursos')->get();
+        $SolSub = DB::table('solicitud_subrecurso')->get();
+        $subrecs = DB::table('subrecursos')->get();
+        $solis = DB::table('solicitud')->get();
+
+        $SB_S = DB::table('solicitud')->get();
+        $SB_R = DB::table('recursos')->get();
+
+        return view('solicitud.solicitudescreadas', ['recurs' => $recurs, 'userrs' => $userrs, 'subrecs' => $subrecs, 
+        'SolSub' => $SolSub, 'solis' => $solis, 'SB_S' => $SB_S, 'SB_R' => $SB_R]);
+
+    }
+        //
+
 
     public function indexSuper()
     {
@@ -171,11 +256,11 @@ class SolicitudController extends Controller
         $SolSub = DB::table('solicitud_subrecurso')->get();
         $subrecs = DB::table('subrecursos')->get();
         $dueño = DB::table('users')->where('id',$recurs->idAprobador)->first();
-
+        $ejecutor = DB::table('users')->where('id',$recurs->idEjecutor)->first();
         $SB_S = DB::table('solicitud')->get();
         $SB_R = DB::table('recursos')->get();
 
-        return view('solicitud.create2', ['recurs' => Recursos::findOrFail($id), 'userrs' => $userrs, 'subrecs' => $subrecs, 'SolSub' => $SolSub, 'dueño' => $dueño, 'SB_S' => $SB_S, 'SB_R' => $SB_R]);
+        return view('solicitud.create2', ['recurs' => Recursos::findOrFail($id), 'userrs' => $userrs, 'subrecs' => $subrecs, 'SolSub' => $SolSub, 'dueño' => $dueño, 'ejecutor' => $ejecutor,'SB_S' => $SB_S, 'SB_R' => $SB_R]);
 
     }
 
@@ -227,12 +312,12 @@ class SolicitudController extends Controller
         $SolSub = DB::table('solicitud_subrecurso')->get();
         $subrecs = DB::table('subrecursos')->get();
         $dueño = DB::table('users')->where('id',$recurs->idAprobador)->first();
-
+        $ejecutor = DB::table('users')->where('id',$recurs->idEjecutor)->first();
 
         $SB_S = DB::table('solicitud')->get();
         $SB_R = DB::table('recursos')->get();
 
-        return view('solicitud.create2Terceros', ['recurs' => Recursos::findOrFail($id), 'userrs' => $userrs, 'subrecs' => $subrecs, 'SolSub' => $SolSub, 'userNoCont' => $userNoCont, 'dueño' => $dueño, 'SB_S' => $SB_S, 'SB_R' => $SB_R]);
+        return view('solicitud.create2Terceros', ['recurs' => Recursos::findOrFail($id), 'userrs' => $userrs, 'subrecs' => $subrecs, 'SolSub' => $SolSub, 'userNoCont' => $userNoCont, 'dueño' => $dueño,'ejecutor' => $ejecutor ,'SB_S' => $SB_S, 'SB_R' => $SB_R]);
 
 
     }
@@ -246,11 +331,11 @@ class SolicitudController extends Controller
         $SolSub = DB::table('solicitud_subrecurso')->get();
         $subrecs = DB::table('subrecursos')->get();
         $dueño = DB::table('users')->where('id',$recurs->idAprobador)->first();
-
+        $ejecutor = DB::table('users')->where('id',$recurs->idEjecutor)->first();
         $SB_S = DB::table('solicitud')->get();
         $SB_R = DB::table('recursos')->get();
 
-        return view('solicitud.create2TercerosC', ['recurs' => Recursos::findOrFail($id), 'userrs' => $userrs, 'subrecs' => $subrecs, 'SolSub' => $SolSub, 'userNoCont' => $userNoCont, 'dueño' => $dueño,'SB_S' => $SB_S, 'SB_R' => $SB_R]);
+        return view('solicitud.create2TercerosC', ['recurs' => Recursos::findOrFail($id), 'userrs' => $userrs, 'subrecs' => $subrecs, 'SolSub' => $SolSub, 'userNoCont' => $userNoCont, 'dueño' => $dueño,'ejecutor' => $ejecutor ,'SB_S' => $SB_S, 'SB_R' => $SB_R]);
 
 
     }
@@ -556,6 +641,42 @@ class SolicitudController extends Controller
     }
 
 
+    public function showSC($id)
+    {
+        $solis = DB::table('solicitud')->where('numSol',$id)->first();
+        $userrs = DB::table('users')->get();
+        $rec = DB::table('recursos')->where('recid',$solis->recid)->first();
+        $SolSub = DB::table('solicitud_subrecurso')->where('numSol',$solis->numSol)->get();
+        $subrecs = DB::table('subrecursos')->get();
+        $mensajes = DB::table('foro')->where('numSol',$id)->get();
+
+        $due = DB::table('users')->where('id',$rec->idAprobador)->first();
+        $eje = DB::table('users')->where('id',$rec->idEjecutor)->first();
+
+        $SB_S = DB::table('solicitud')->get();
+        $SB_R = DB::table('recursos')->get();
+
+        return view('solicitud.sc2', ['rec' => $rec, 'userrs' => $userrs, 'subrecs' => $subrecs, 'solis' => $solis,'SolSub' => $SolSub, 'mensajes' => $mensajes, 'due' => $due, 'eje' => $eje,'SB_S' => $SB_S, 'SB_R' => $SB_R]);
+    }
+
+    public function showSS($id)
+    {
+        $solis = DB::table('solicitud')->where('numSol',$id)->first();
+        $userrs = DB::table('users')->get();
+        $rec = DB::table('recursos')->where('recid',$solis->recid)->first();
+        $SolSub = DB::table('solicitud_subrecurso')->where('numSol',$solis->numSol)->get();
+        $subrecs = DB::table('subrecursos')->get();
+        $mensajes = DB::table('foro')->where('numSol',$id)->get();
+
+        $due = DB::table('users')->where('id',$rec->idAprobador)->first();
+        $eje = DB::table('users')->where('id',$rec->idEjecutor)->first();
+
+        $SB_S = DB::table('solicitud')->get();
+        $SB_R = DB::table('recursos')->get();
+
+        return view('solicitud.ss2', ['rec' => $rec, 'userrs' => $userrs, 'subrecs' => $subrecs, 'solis' => $solis,'SolSub' => $SolSub, 'mensajes' => $mensajes,'SB_S' => $SB_S, 'SB_R' => $SB_R, 'due' => $due, 'eje' => $eje]);
+    }
+
     public function show0($id)
     {
         $solis = DB::table('solicitud')->where('numSol',$id)->first();
@@ -582,11 +703,10 @@ class SolicitudController extends Controller
         $SolSub = DB::table('solicitud_subrecurso')->get();
         $solis = DB::table('solicitud')->where('numSol',$id)->first();
         $mensajes = DB::table('foro')->where('numSol',$id)->get();
-
         $SB_S = DB::table('solicitud')->get();
         $SB_R = DB::table('recursos')->get();
 
-        return view('solicitud.supervisor.edit', ['recurs' => $recurs, 'userrs' => $userrs, 'subrecs' => $subrecs, 'solis' => $solis,'SolSub' => $SolSub,'mensajes' => $mensajes,'SB_S' => $SB_S, 'SB_R' => $SB_R]);
+        return view('solicitud.supervisor.edit', ['recurs' => $recurs, 'userrs' => $userrs, 'subrecs' => $subrecs, 'solis' => $solis,'SolSub' => $SolSub,'mensajes' => $mensajes ,'SB_S' => $SB_S, 'SB_R' => $SB_R]);
     }
 
     public function show2($id)
@@ -598,9 +718,8 @@ class SolicitudController extends Controller
         $solis = DB::table('solicitud')->where('numSol',$id)->first();
         $mensajes = DB::table('foro')->where('numSol',$id)->get();
 
-
-        $SB_S = DB::table('solicitud');
-        $SB_R = DB::table('recursos');
+        $SB_S = DB::table('solicitud')->get();
+        $SB_R = DB::table('recursos')->get();
 
         return view('solicitud.supervisor.edit2', ['recurs' => $recurs, 'userrs' => $userrs, 'subrecs' => $subrecs, 'solis' => $solis,'SolSub' => $SolSub, 'mensajes' => $mensajes,'SB_S' => $SB_S, 'SB_R' => $SB_R]);
     }
@@ -879,7 +998,7 @@ class SolicitudController extends Controller
             $mensajes = DB::table('foro')->where('numSol',$id)->get();
             DB::table('solicitud')->where('numSol',$id)->update([
                 'fechaRec' => $date,
-                'fechaSup' => NULL,
+                'fechaApr' => NULL,
                 'Estado' => 'RECHAZADO POR DUEÑO DE RECURSO',
                 'Nota_Dueño_Rec' => $nota,
             ]);
@@ -902,7 +1021,7 @@ class SolicitudController extends Controller
             
 
                 DB::table('solicitud')->where('numSol',$id)->update([
-                    'fechaSup' => $date,
+                    'fechaApr' => $date,
                     'fechaRec' => NULL,
                     'Estado' => 'PENDIENTE DE EJECUCION',
                     'Nota_Dueño_Rec' => $nota, 
@@ -987,7 +1106,7 @@ class SolicitudController extends Controller
             $mensajes = DB::table('foro')->where('numSol',$id)->get();
             DB::table('solicitud')->where('numSol',$id)->update([
                 'fechaRec' => $date,
-                'fechaSup' => NULL,
+                'fechaEje' => NULL,
                 'Estado' => 'RECHAZADO POR EJECUTOR',
                 'Nota_Ejecutor' => $nota,
 
@@ -1011,7 +1130,7 @@ class SolicitudController extends Controller
             
 
                 DB::table('solicitud')->where('numSol',$id)->update([
-                    'fechaSup' => $date,
+                    'fechaEje' => $date,
                     'fechaRec' => NULL,
                     'Estado' => 'EJECUTADA',
                     'Nota_Ejecutor' => $nota, 
@@ -1076,10 +1195,11 @@ class SolicitudController extends Controller
 
 public function enviarUpdate(Request $request, $id)
     {
+    if(Input::get('enviar')){
         DB::table('solicitud')->where('numSol','=',$id)->update([
             'Estado' => 'PENDIENTE DE SUPERVISOR'
 
-        ]);
+            ]);
 
         $userrs = DB::table('users')->get();
         $recurs = DB::table('recursos')->get();
@@ -1101,7 +1221,111 @@ public function enviarUpdate(Request $request, $id)
         $SB_R = DB::table('recursos')->get();
 
         return view('solicitud.enviar', ['recurs' => $recurs, 'userrs' => $userrs, 'subrecs' => $subrecs, 
-        'SolSub' => $SolSub, 'solis' => $solis,'solis2' => $solis2, 'solis3' => $solis3, 'solis4' => $solis4,'Funciono' => 'Solicitud enviada correctamente','SB_S' => $SB_S, 'SB_R' => $SB_R]); 
+            'SolSub' => $SolSub, 'solis' => $solis,'solis2' => $solis2, 'solis3' => $solis3, 'solis4' => $solis4,'Funciono' => 'Solicitud enviada correctamente','SB_S' => $SB_S, 'SB_R' => $SB_R]); 
+    }
+
+    if(Input::get('nota')){
+        $nota = $request->input('Nota_Creador'); 
+        $date = date('Y-m-d H:i:s');
+        $solis = DB::table('solicitud')->where('numSol',$id)->first();
+        $idEmisor = $request->input('idEmisor');
+
+
+        DB::table('foro')->insert([
+          'id' => $idEmisor,
+          'numSol' => $solis->numSol,
+          'mensaje' => $nota,
+          'cargo' => 'CREADOR',
+          'created_at' => $date
+        ]); 
+
+        $solis = DB::table('solicitud')->where('numSol',$id)->first();
+        $userrs = DB::table('users')->get();
+        $rec = DB::table('recursos')->where('recid',$solis->recid)->first();
+        $SolSub = DB::table('solicitud_subrecurso')->where('numSol',$solis->numSol)->get();
+        $subrecs = DB::table('subrecursos')->get();
+        $mensajes = DB::table('foro')->where('numSol',$id)->get();
+
+        $SB_S = DB::table('solicitud')->get();
+        $SB_R = DB::table('recursos')->get();
+
+        return view('solicitud.enviar2', ['rec' => $rec, 'userrs' => $userrs, 'subrecs' => $subrecs, 'solis' => $solis,'SolSub' => $SolSub, 'mensajes' => $mensajes,'SB_S' => $SB_S, 'SB_R' => $SB_R]);
+    }
+
+
+
+
+    }
+
+
+
+public function updateSC(Request $request, $id)
+   {
+        $nota = $request->input('Nota_Creador'); 
+        $date = date('Y-m-d H:i:s');
+        $solis = DB::table('solicitud')->where('numSol',$id)->first();
+        $idEmisor = $request->input('idEmisor');
+
+
+        DB::table('foro')->insert([
+          'id' => $idEmisor,
+          'numSol' => $solis->numSol,
+          'mensaje' => $nota,
+          'cargo' => 'CREADOR',
+          'created_at' => $date
+        ]); 
+
+        $solis = DB::table('solicitud')->where('numSol',$id)->first();
+        $userrs = DB::table('users')->get();
+        $rec = DB::table('recursos')->where('recid',$solis->recid)->first();
+        $SolSub = DB::table('solicitud_subrecurso')->where('numSol',$solis->numSol)->get();
+        $subrecs = DB::table('subrecursos')->get();
+        $mensajes = DB::table('foro')->where('numSol',$id)->get();
+
+        $SB_S = DB::table('solicitud')->get();
+        $SB_R = DB::table('recursos')->get();
+
+
+        $due = DB::table('users')->where('id',$rec->idAprobador)->first();
+        $eje = DB::table('users')->where('id',$rec->idEjecutor)->first();
+
+        return view('solicitud.sc2', ['rec' => $rec, 'userrs' => $userrs, 'subrecs' => $subrecs, 'solis' => $solis,'SolSub' => $SolSub, 'mensajes' => $mensajes,'SB_S' => $SB_S, 'SB_R' => $SB_R, 'due' => $due, 'eje' => $eje]);
+
+
+    }
+
+
+public function updateSS(Request $request, $id)
+   {
+        $nota = $request->input('Nota_Sol'); 
+        $date = date('Y-m-d H:i:s');
+        $solis = DB::table('solicitud')->where('numSol',$id)->first();
+        $idEmisor = $request->input('idEmisor');
+
+
+        DB::table('foro')->insert([
+          'id' => $idEmisor,
+          'numSol' => $solis->numSol,
+          'mensaje' => $nota,
+          'cargo' => 'SOLICITANTE',
+          'created_at' => $date
+        ]); 
+
+        $solis = DB::table('solicitud')->where('numSol',$id)->first();
+        $userrs = DB::table('users')->get();
+        $rec = DB::table('recursos')->where('recid',$solis->recid)->first();
+        $SolSub = DB::table('solicitud_subrecurso')->where('numSol',$solis->numSol)->get();
+        $subrecs = DB::table('subrecursos')->get();
+        $mensajes = DB::table('foro')->where('numSol',$id)->get();
+
+        $SB_S = DB::table('solicitud')->get();
+        $SB_R = DB::table('recursos')->get();
+
+
+        $due = DB::table('users')->where('id',$rec->idAprobador)->first();
+        $eje = DB::table('users')->where('id',$rec->idEjecutor)->first();
+
+        return view('solicitud.ss2', ['rec' => $rec, 'userrs' => $userrs, 'subrecs' => $subrecs, 'solis' => $solis,'SolSub' => $SolSub, 'mensajes' => $mensajes,'SB_S' => $SB_S, 'SB_R' => $SB_R, 'due' => $due, 'eje' => $eje]);
 
 
     }

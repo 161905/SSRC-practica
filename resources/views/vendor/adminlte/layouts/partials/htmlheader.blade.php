@@ -1,6 +1,6 @@
 <head>
     <meta charset="UTF-8">
-    <title> AdminLTE 2 with Laravel - @yield('htmlheader_title', 'Your title here') </title>
+    <title> Sistema de Solicitud de Recursos Computacionales @yield('htmlheader_title', 'Your title here') </title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
 
@@ -114,6 +114,105 @@
     top:1px;
     width: 110  px;
 }
+
+.myButton2 {
+    -moz-box-shadow:inset 0px 39px 0px -24px #e67a73;
+    -webkit-box-shadow:inset 0px 39px 0px -24px #e67a73;
+    box-shadow:inset 0px 39px 0px -24px #DDD910;
+    background-color:#BDBA0E;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    border-radius:4px;
+    border:1px solid #ffffff;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    padding:6px 15px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #b23e35;
+    width: 110px;
+    text-align: center;
+    
+}
+.myButton2:hover {
+    background-color:#93DD10;
+    box-shadow:inset 0px 39px 0px -24px #93DD10;
+    width: 110px;
+}
+.myButton2  :active {
+    position:relative;
+    top:1px;
+    width: 110  px;
+}
+
+.myButton4 {
+    -moz-box-shadow:inset 0px 39px 0px -24px #e67a73;
+    -webkit-box-shadow:inset 0px 39px 0px -24px #e67a73;
+    box-shadow:inset 0px 39px 0px -24px #5ED88D;
+    background-color:#5ED8BD;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    border-radius:4px;
+    border:1px solid #ffffff;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    padding:6px 15px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #b23e35;
+    width: 110px;
+    text-align: center;
+    
+}
+.myButton4:hover {
+    background-color: #8BEC85;
+    box-shadow:inset 0px 39px 0px -24px #8BEC85;
+    width: 110px;
+}
+.myButton4 :active {
+    position:relative;
+    top:1px;
+    width: 110  px;
+}
+
+.myButton5{
+    -moz-box-shadow:inset 0px 39px 0px -24px #e67a73;
+    -webkit-box-shadow:inset 0px 39px 0px -24px #e67a73;
+    box-shadow:inset 0px 39px 0px -24px #FF5757;
+    background-color:red;
+    -moz-border-radius:4px;
+    -webkit-border-radius:4px;
+    border-radius:4px;
+    border:1px solid #ffffff;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    padding:6px 15px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #b23e35;
+    width: 110px;
+    text-align: center;
+    
+}
+.myButton5:hover {
+    background-color: #FFBD57;
+    box-shadow:inset 0px 39px 0px -24px #FFBD57;
+    width: 110px;
+}
+.myButton5 :active {
+    position:relative;
+    top:1px;
+    width: 110  px;
+}
+
+
+
 
 
 

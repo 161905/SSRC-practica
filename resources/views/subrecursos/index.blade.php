@@ -5,6 +5,36 @@
 @endsection
 
 
+<style>
+DIV.table 
+{
+    display:table;
+    border: 1px solid black;
+    text-align: left;
+
+}
+FORM.tr, DIV.tr
+{
+    display:table-row;
+    border: 1px solid black;
+    padding: 20px;
+    text-align: left;
+}
+
+FORM.tr, DIV.tr:hover
+{
+    background-color: #9EC6DF;
+}
+
+SPAN.td
+{
+    display:table-cell;
+    border: 1px solid black;
+    padding: 20px;
+    text-align: left;
+}
+</style>
+
 @section('main-content')
 	<div class="container-fluid spark-screen">
 		<div class="row">
@@ -82,94 +112,161 @@
                                                             </h3>
                                                         </div>
                                                         <div class="modal-body">
-                                                        <p style="border-style: solid;">
-                                                          <strong>NOMBRE SUBRECURSO: </strong>{{$sub->nombre}}
-                                                        </p>
-                                                        <p style="border-style: solid;">
-                                                          <strong>NOMBRE RECURSO: </strong><?php
-                                                              if ($sub->recid == NULL){
-                                                                  print("<strong>[FALTA]</strong>");
-                                                              }
-                                                              else{
-                                                                  foreach ($recurs as $re) {
-                                                                      if($re->recid == $sub->recid){
-                                                                          echo $re->nombre;
-                                                                      }
-                                                                  }
+                                                        <div class="table">
+                                              			  <div class="tr">
+                                                           <span class="td" style="background-color: #E6E6E6;">
+                                                     			<strong>NOMBRE SUBRECURSO </strong>
+                                                           </span>
+                                                           <span class="td">
+                                                           		{{$sub->nombre}}
+                                                           </span>
+                                                          </div>
+                                                     
+                                                      
+                                              			  <div class="tr">
+                                                           <span class="td" style="background-color: #E6E6E6;">
+                                                     			<strong>NOMBRE RECURSO </strong>
+                                                           </span>
+                                                           <span class="td">
+                                                           		<?php
+		                                                              if ($sub->recid == NULL){
+		                                                                  print("<strong>[FALTA]</strong>");
+		                                                              }
+		                                                              else{
+		                                                                  foreach ($recurs as $re) {
+		                                                                      if($re->recid == $sub->recid){
+		                                                                          echo $re->nombre;
+		                                                                      }
+		                                                                  }
 
-                                                              }
-                                                          ?>
-                                                        </p>
-                                                        <p style="border-style: solid;">
-                                                          <strong>ID SUBRECURSO: </strong>{{$sub->subrecid}}
-                                                        </p>
-                                                        <p style="border-style: solid;">
-                                                          <strong>ID RECURSO: </strong>{{$sub->recid}}
-                                                        </p>
-                                                        <p style="border-style: solid;">
-                                                          <strong>DUEÑO: </strong><?php
-                                                              if ($sub->idDueño == NULL){
-                                                                  print("<strong>[FALTA]</strong>");
-                                                              }
-                                                              else{
-                                                                  foreach ($userrs as $us) {
-                                                                      if($us->id == $sub->idDueño){
-                                                                          echo $us->userid;
-                                                                      }
-                                                                  }
+		                                                              }
+		                                                          ?>
+                                                           </span>
+                                                          </div>
+                                                          <div class="tr">
+                                                           <span class="td" style="background-color: #E6E6E6;">
+                                                     			<strong>ID SUBRECURSO </strong>
+                                                           </span>
+                                                           <span class="td">
+                                                           		{{$sub->subrecid}}
+                                                           </span>
+                                                          </div>
+                                                          <div class="tr">
+                                                           <span class="td" style="background-color: #E6E6E6;">
+                                                     			<strong>ID RECURSO </strong>
+                                                           </span>
+                                                           <span class="td">
+                                                           		{{$sub->recid}}
+                                                           </span>
+                                                          </div>
+                                                          <div class="tr">
+                                                           <span class="td" style="background-color: #E6E6E6;">
+                                                     			<strong>DUEÑO </strong>
+                                                           </span>
+                                                           <span class="td">
+                                                           		<?php
+		                                                              if ($sub->idDueño == NULL){
+		                                                                  print("<strong>[FALTA]</strong>");
+		                                                              }
+		                                                              else{
+		                                                                  foreach ($userrs as $us) {
+		                                                                      if($us->id == $sub->idDueño){
+		                                                                          echo $us->userid;
+		                                                                      }
+		                                                                  }
 
-                                                              }
-                                                          ?>
-                                                        </p>
-                                                        <p style="border-style: solid;">
-                                                          <strong>PAIS: </strong>{{$sub->pais}}
-                                                        </p>
-                                                        <p style="border-style: solid;">
-                                                          <strong>RECURSO ELLIPSE: </strong><?php
-                                                              if ($sub->recurso_ellipse == 0){
-                                                                  print("NO");
-                                                              }
-                                                              else{
-                                                                  print("SI");
-                                                              }
-                                                          ?>
-                                                        </p>
-                                                        <p style="border-style: solid;">
-                                                          <strong>GRUPO NT: </strong>{{$sub->grupo_nt}}
-                                                        </p>
-                                                        <p style="border-style: solid;">
-                                                          <strong>TABLA ASOCIADA: </strong>{{$sub->tabla_aso}}
-                                                        </p>
-                                                        <p style="border-style: solid;">
-                                                          <strong>ACTIVO: </strong><?php
-                                                              if ($sub->activo == 0){
-                                                                  print("NO");
-                                                              }
-                                                              else{
-                                                                  print("SI");
+		                                                              }
+		                                                          ?>
+                                                           </span>
+                                                          </div>
+                                                          <div class="tr">
+                                                           <span class="td" style="background-color: #E6E6E6;">
+                                                     			<strong>PAIS </strong>
+                                                           </span>
+                                                           <span class="td">
+                                                           		{{$sub->pais}}
+                                                           </span>
+                                                          </div>
+                                                          <div class="tr">
+                                                           <span class="td" style="background-color: #E6E6E6;">
+                                                     			<strong>RECURSO ELLIPSE </strong>
+                                                           </span>
+                                                           <span class="td">
+                                                           		<?php
+		                                                              if ($sub->recurso_ellipse == 0){
+		                                                                  print("NO");
+		                                                              }
+		                                                              else{
+		                                                                  print("SI");
+		                                                              }
+		                                                          ?>
+                                                           </span>
+                                                          </div>
+                                                          <div class="tr">
+                                                           <span class="td" style="background-color: #E6E6E6;">
+                                                     			<strong>GRUPO NT </strong>
+                                                           </span>
+                                                           <span class="td">
+                                                           		{{$sub->grupo_nt}}
+                                                           </span>
+                                                          </div>
+                                                          <div class="tr">
+                                                           <span class="td" style="background-color: #E6E6E6;">
+                                                     			<strong>TABLA ASOCIADA </strong>
+                                                           </span>
+                                                           <span class="td">
+                                                           		{{$sub->tabla_aso}}
+                                                           </span>
+                                                          </div>
+                                                          <div class="tr">
+                                                           <span class="td" style="background-color: #E6E6E6;">
+                                                     			<strong>ACTIVO </strong>
+                                                           </span>
+                                                           <span class="td">
+                                                           		<?php
+		                                                              if ($sub->activo == 0){
+		                                                                  print("NO");
+		                                                              }
+		                                                              else{
+		                                                                  print("SI");
 
-                                                              }
-                                                          ?>
-                                                        <p style="border-style: solid;">
-                                                          <strong>NOTA: </strong>{{$sub->nota}}
-                                                        </p>
-                                                        <p style="border-style: solid;">
-                                                          <strong>REQUIERE ETIQUETA: </strong><?php
-                                                              if ($sub->activo == 0){
-                                                                  print("NO");
-                                                              }
-                                                              else{
-                                                                  print("SI");
-                                                              }
-                                                          ?>
-                                                        </p>
-                                                        <p style="border-style: solid;">
-                                                          <strong>ETIQUETA PARA NOTA: </strong>{{$sub->tag_nota}}
-                                                        </p>
+		                                                              }
+		                                                          ?>
+                                                           </span>
+                                                          </div>
+                                                          <div class="tr">
+                                                           <span class="td" style="background-color: #E6E6E6;">
+                                                     			<strong>NOTA </strong>
+                                                           </span>
+                                                           <span class="td">
+                                                           		{{$sub->nota}}
+                                                           </span>
+                                                          </div>
+                                                          <div class="tr">
+                                                           <span class="td" style="background-color: #E6E6E6;">
+                                                     			<strong>REQUIERE ETIQUETA? </strong>
+                                                           </span>
+                                                           <span class="td">
+		                                                           	<?php
+		                                                              if ($sub->activo == 0){
+		                                                                  print("NO");
+		                                                              }
+		                                                              else{
+		                                                                  print("SI");
 
-                                                        
-
-                                                        </div>
+		                                                              }
+		                                                          ?>
+                                                           </span>
+                                                          </div>
+                                                          <div class="tr">
+                                                           <span class="td" style="background-color: #E6E6E6;">
+                                                     			<strong>NOTA DE LA ETIQUETA </strong>
+                                                           </span>
+                                                           <span class="td">
+                                                           		{{$sub->tag_nota}}
+                                                           </span>
+                                                          </div>       
+                                                      </div>
 
 
 

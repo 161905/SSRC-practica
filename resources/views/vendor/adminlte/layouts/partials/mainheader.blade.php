@@ -5,9 +5,9 @@
     
     <a style="background: #222D32;" href="{{ url('/home') }}" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini"><b><i class="fa fa-home"></i></b></span>
+        <span class="logo-mini"><b><i style="position: absolute; top: 15px; left: 15px;" class="fa fa-home"></i></b></span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg"><b>SSRC</b> </span>
+        <span class="logo-lg" style="background-color: white;"><b><img width="150px" src="/storage/anglo-american-logo.png"></b> </span>
     </a>
 
     <!-- Header Navbar -->

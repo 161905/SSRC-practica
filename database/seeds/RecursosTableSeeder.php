@@ -84,7 +84,9 @@ class RecursosTableSeeder extends Seeder
         		"grupo_nt" => NULL,
         		"mail_gsd" => 1,
         		"cod_gsd" => "C1"
-        	]
+        	] //7
+
+
         ]);
     }
 }

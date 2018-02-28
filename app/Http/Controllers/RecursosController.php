@@ -35,7 +35,17 @@ class RecursosController extends Controller
     }
     public function create()
     {
-        //
+        $SB_S = DB::table('solicitud')->get();
+        $SB_R = DB::table('recursos')->get();
+
+        $userrs = DB::table('users')->get();
+        $clasi = DB::table('clasificacion')->get();
+
+        $subrecs = DB::table('subrecursos')->get();
+        
+        $recurs = DB::table('recursos')->get();
+        return view('recursos.index', ['recurs' => $recurs, 'userrs' => $userrs, 'clasi' => $clasi, 'SB_S' => $SB_S, 'SB_R' => $SB_R, 'subrecs' => $subrecs]);
+    
     }
 
     /**
@@ -46,7 +56,43 @@ class RecursosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $nombre = $request->input('nombre');
+        $idAprobador = $request->input('idAprobador');
+        $idEjecutor = $request->input('idEjecutor');
+        $idClasifica = $request->input('idClasifica');
+        $pais = $request->input('pais');
+        $nota = $request->input('nota');
+        $tipo_r = $request->input('tipo_r');
+        $grupo_nt = $request->input('grupo_nt');
+        $mail_gsd = $request->input('mail_gsd');
+        $cod_gsd = $request->input('cod_gsd');
+
+
+        DB::table('recursos')->insert([
+                'nombre' => $nombre,
+                'idAprobador' => $idAprobador,
+                'idEjecutor' => $idEjecutor,
+                'idClasifica' => $idClasifica,
+                'pais' => $pais,
+                'nota' => $nota,
+                'tipo_r' => $tipo_r,
+                'grupo_nt' => $grupo_nt,
+                'mail_gsd' => $mail_gsd,
+                'cod_gsd' => $cod_gsd,
+            ]);
+        
+
+
+
+        $SB_S = DB::table('solicitud')->get();
+        $SB_R = DB::table('recursos')->get();
+        $userrs = DB::table('users')->get();
+        $clasi = DB::table('clasificacion')->get();
+        $subrecs = DB::table('subrecursos')->get();
+        $recurs = DB::table('recursos')->get();
+        return $request->all();
+        return view('recursos.index', ['recurs' => $recurs, 'userrs' => $userrs, 'clasi' => $clasi, 'SB_S' => $SB_S, 'SB_R' => $SB_R, 'subrecs' => $subrecs]);
     }
 
     /**

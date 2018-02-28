@@ -36,8 +36,9 @@
             <li class="active"><a href="{{ url('home') }}"><i class='fa fa-home'></i> <span style="width: 300px" >Inicio</span></a></li>
 
 
+
             <li class="treeview">
-                <a href="#"><i class='fa fa-user'></i> <span  style="width: 300px"  >Seguridad y Usuarios</span><i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><i class='fa fa-users'></i> <span  style="width: 300px"  >Seguridad y Usuarios</span><i class="fa fa-angle-left pull-right"></i></a>
                 <ul  style="width: 300px"  class="treeview-menu">
                     <li><a href="/usuario/index">Usuarios</a></li>
                     <li><a href="#">Carga Active Directory Anglo</a></li>
@@ -58,10 +59,13 @@
                 </ul>
             </li>
 
+
+
             <li class="treeview">
                 <a href="#"><i class='fa fa-send'></i> <span style="width: 300px" >Solicitudes</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul  style="width: 300px" class="treeview-menu">
-                    <li><a href="/solicitud/create">Crear Solicitud</a></li>
+                    <li><a href="/solicitud/create">Crear Solicitud</a>
+                    </li>
                     <li>
                         <a href="#"><i class='fa fa-send'></i> <span style="width: 300px" >Crear solicitud para tercero </span> <i class="fa fa-angle-left pull-right"></i></a>
                             <ul  style="width: 300px" class="treeview-menu">
@@ -70,10 +74,19 @@
                                 <li><a href="#">Sin cuenta de red</a></li>
                             </ul>
                     </li>
-                    <li><a href="/solicitud/index">Consulta Solicitud</a></li>
-                    <li><a href="/solicitud/enviar">Editar o eliminar solicitud</a></li>
+                    <li><a href="/solicitud/index">Consulta Solicitud</a>
+                    </li>
+                
                     <li>
-                        <a href="#"><i class='fa fa-send'></i> <span style="width: 300px" >Supervisores</span> <i class="fa fa-angle-left pull-right"></i></a>
+                        <a href="#"><i class='fa fa-user'></i> <span style="width: 300px" >Mis solicitudes</span> <i class="fa fa-angle-left pull-right"></i></a>
+                            <ul style="width: 300px"  class="treeview-menu">
+                                <li><a href="/solicitud/enviar">Editar y/o Enviar solicitud</a></li>
+                                <li><a href="/solicitud/solicitudescreadas">Solicitudes creadas</a></li>
+                                <li><a href="/solicitud/solicitudessolicitadas">Solicitudes solicitadas</a></li>
+                            </ul>
+                    </li>
+                    <li>
+                        <a href="#"><i class='fa fa-user-circle'></i> <span style="width: 300px" >Supervisores</span> <i class="fa fa-angle-left pull-right"></i></a>
                             <ul style="width: 300px"  class="treeview-menu">
                                 <li>
 
@@ -95,7 +108,7 @@
                             </ul>
                     </li>
                     <li>
-                        <a href="#"><i class='fa fa-send'></i> <span style="width: 300px" >Dueño Rec. o SubRec.</span> <i class="fa fa-angle-left pull-right"></i></a>
+                        <a href="#"><i class='glyphicon glyphicon-inbox'></i> <span style="width: 300px" >Dueño Rec. o SubRec.</span> <i class="fa fa-angle-left pull-right"></i></a>
                             <ul  style="width: 300px" class="treeview-menu">
                                 <li><a href="/solicitud/dueño/index"><span>Aprobacion de Recurso &nbsp; </span><span class="label label-danger">
                                         <?php
@@ -118,7 +131,7 @@
                             </ul>
                     </li>
                     <li>
-                        <a href="#"><i class='fa fa-send'></i> <span style="width: 300px" >Ejecutores</span> <i class="fa fa-angle-left pull-right"></i></a>
+                        <a href="#"><i class='glyphicon glyphicon-check'></i> <span style="width: 300px" >Ejecutores</span> <i class="fa fa-angle-left pull-right"></i></a>
                             <ul  style="width: 300px" class="treeview-menu">
                                 <li><a href="/solicitud/ejecutor/index"><span>Ejecutar Solicitud&nbsp;</span><span class="label label-danger">
                                     <?php
@@ -140,9 +153,22 @@
                     </li>
                 </ul>
 
-                    </li>
-                </ul>
+                    
+                    
+
+             
+
+
             </li>
+            <li ><a href="/solicitud/reportabilidad"><i class='fa fa-pie-chart'></i> <span style="width: 300px" >Reportabilidad</span></a></li>
+
+
+            
+
+
+
+
+
 
 
 

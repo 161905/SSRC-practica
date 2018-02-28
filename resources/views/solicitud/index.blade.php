@@ -11,11 +11,13 @@
     <div class="row">
       <!--div class="col-md-9 col-md-offset-1"-->
             <div class="col-12">
-                    <input type="text" id="TABLA0" onkeyup="columna0()" placeholder="Buscar por ID Subrecurso..">
-                    <input type="text" id="TABLA1" onkeyup="columna1()" placeholder="Buscar por ID Recurso..">
-                    <input type="text" id="TABLA2" onkeyup="columna2()" placeholder="Buscar por Nombre Subrecurso..">
-                    <input type="text" id="TABLA3" onkeyup="columna3()" placeholder="Buscar por Nombre Recurso..">
-                    <input type="text" id="TABLA4" onkeyup="columna4()" placeholder="Buscar por Dueño..">
+                    <input type="text" id="TABLA0" onkeyup="columna0()" placeholder="Buscar por Num. Solicitud..">
+                    <input type="text" id="TABLA1" onkeyup="columna1()" placeholder="Buscar por Creador..">
+                    <input type="text" id="TABLA2" onkeyup="columna2()" placeholder="Buscar por Solicitante..">
+                    <input type="text" id="TABLA3" onkeyup="columna3()" placeholder="Buscar por Recurso..">
+                    <input type="text" id="TABLA5" onkeyup="columna5()" placeholder="Buscar por Estado..">
+                    <input type="text" id="TABLA6" onkeyup="columna6()" placeholder="Buscar por Fecha  de creacion..">
+                    <input type="text" id="TABLA11" onkeyup="columna11()" placeholder="Buscar por Ticket GSD..">
 
                                 <table class="table table-striped table-bordered table-hover" id="myTable">.
 
